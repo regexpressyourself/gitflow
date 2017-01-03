@@ -1,0 +1,4 @@
+* Conversational Git
+A website to help walk through the typical merge workflow with git. Designed as a way to familiarize myself with react, and to help my classmates figure out what they're doing when we try to use git on group projects.
+
+
