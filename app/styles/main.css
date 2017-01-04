@@ -1,0 +1,44 @@
+
+body{
+    color: #191414 ;
+}
+p{
+    text-align: left;
+}
+h2,
+h3,
+h4 {
+    text-align: left;
+    margin: 20px 0 10px 0;
+    width: 100%;
+    font-weight: 600;
+}
+
+.jumbotron {
+    background-color: #fff;
+}
+.main-container {
+    margin: 0 auto;
+    padding: 0 20%;
+}
+
+.btn-black {
+    background-color: black;
+    color: white;
+}
+
+/* transition stuff */
+.appear-enter {
+    transition-duration: .7s;
+    transition-property: opacity;
+    transition-timing-function: ease-out;
+    opacity: 0;
+}
+
+.appear-enter.appear-enter-active {
+    opacity: 1;
+}
+
+.appear-leave {
+    opacity: 0;
+}
