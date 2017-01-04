@@ -1,19 +1,9 @@
 let styles = {
-    greenBg: {
-        background: '#1DB954'
-    },
-    space: {
-        marginTop: '25px'
-    },
-    
-    artistImage: {
-        maxHeight: '500px',
-        margin: 'auto'
-        },
-    artistInfo: {
+    TermsBg: {
         border: "1px solid black",
-        margin: '50px',
-        padding: '20px'
-        }
+        padding: '20px 5px',
+        margin: "20px 0"
+
+    }
 }
 module.exports = styles;
