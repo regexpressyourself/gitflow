@@ -22,9 +22,19 @@ h4 {
     padding: 0 20%;
 }
 
+.next-step {
+    margin: 50px 0;
+}
 .btn-black {
     background-color: black;
     color: white;
+}
+.btn-black:hover,
+.btn-black:focus{
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+
 }
 
 /* transition stuff */
