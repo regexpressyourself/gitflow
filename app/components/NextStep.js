@@ -1,5 +1,6 @@
-import React                 from 'react';
+import React    from 'react';
 import { Link } from 'react-router';
+import { NextStepBox } from '../styles';
 
 class NextStep extends React.Component {
     constructor(props) {
@@ -23,13 +24,12 @@ class NextStep extends React.Component {
     }
     render() {
         return (
-            <div>
+            <div style={NextStepBox}>
                 <p>
                     {this.state.blurb}
                     <Link to={this.state.link}>{this.state.linkText}</Link>.
-                    <br/>
-                    <Link to={this.state.link}><button className="btn btn-lg btn-black">{this.state.buttonText}</button></Link>
                 </p>
+                <Link to={this.state.link}><button className="btn btn-lg btn-black">{this.state.buttonText}</button></Link>
             </div>
         )
     }
