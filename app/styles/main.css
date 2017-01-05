@@ -28,6 +28,8 @@ h4 {
 .btn-black {
     background-color: black;
     color: white;
+    margin: 20px auto 0;
+    text-align: center;
 }
 .btn-black:hover,
 .btn-black:focus{
