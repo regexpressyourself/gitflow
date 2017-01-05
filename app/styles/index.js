@@ -1,8 +1,15 @@
 let styles = {
     TermsBg: {
-        border: "1px solid black",
-        padding: '20px 5px',
-        margin: "20px 0"
+        width: '50%',
+        position: 'absolute',
+        right: '0',
+        paddingLeft: '20px',
+        top: '8em'
+    },
+    TitleLine: {
+        width: '50%',
+        borderRight: '5px solid black',
+        height: '25em'
 
     }
 }
