@@ -5,8 +5,10 @@ import {TitleLine} from '../styles';
 class TitleContainer extends React.Component {
     render() {
         return (
-            <div style={TitleLine}>
+            <div>
                 {this.props.children}
+                <div style={TitleLine}>
+                </div>
             </div>
         )
     }
