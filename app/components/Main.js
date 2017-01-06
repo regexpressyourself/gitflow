@@ -6,14 +6,19 @@ class Main extends React.Component {
     render() {
         return (
             <div className='container'>
+
+                <div className="col-sm-12 text-center" >
+
                 <ReactCSSTransitionGroup
                     transitionName="appear"
                     transitionEnterTimeout={500}
                     transitionLeaveTimeout={500} >
-                    <div className="col-sm-12 text-center" >
-                        {React.cloneElement(this.props.children, {key: this.props.location.pathname})}
-                    </div>
+
+                    {React.cloneElement(this.props.children,
+                                        {key: this.props.location.pathname}
+                     )}
                 </ReactCSSTransitionGroup>
+                </div>
             </div>
         )
     }
