@@ -1,9 +1,13 @@
 
 body{
     color: #191414 ;
+    padding-bottom: 75px;
 }
 p{
     text-align: left;
+}
+h1 {
+    font-weight: 600;
 }
 h2,
 h3,
@@ -14,6 +18,9 @@ h4 {
     font-weight: 600;
 }
 
+.container {
+    max-width: 70%;
+}
 .jumbotron {
     background-color: #fff;
 }
@@ -42,7 +49,7 @@ h4 {
 /* transition stuff */
 .appear-enter {
     transition-duration: .7s;
-    transition-property: opacity;
+    transition-property: all;
     transition-timing-function: ease-out;
     opacity: 0;
 }
@@ -53,4 +60,20 @@ h4 {
 
 .appear-leave {
     opacity: 0;
+}
+
+.slide-enter {
+    transition-duration: .7s;
+    transition-property: all;
+    transition-timing-function: ease-out;
+    transform: translate(0, 100%);
+}
+
+.slide-enter.slide-enter-active {
+    transform: translate(0, 0);
+}
+
+.slide-leave {
+    transform: translate(0, -100%);
+
 }
