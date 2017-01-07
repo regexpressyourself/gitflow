@@ -5,13 +5,14 @@ import TermsContainer    from './TermsContainer';
 import NextStep          from './NextStep';
 import StepTitle         from './StepTitle';
 import TwoStep           from './TwoStep';
+import OneStep           from './OneStep';
 import TitleContainer    from './TitleContainer';
 import TermsDescription  from './TermsDescription';
 import FlowHeader        from './FlowHeader';
 import NextStepContainer from './NextStepContainer';
 import { NextStepBox } from '../styles';
 
-class Start extends React.Component {
+class Init extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -25,18 +26,19 @@ class Start extends React.Component {
             onNextStep: this.props.onNextStep
         });
     }
-    onNextStep(nextComponent) {
+    onNextStep() {
         this.setState({
             isActive: false
         });
-        this.state.onNextStep(nextComponent);
+        this.state.onNextStep("init");
+
     }
     render() {
         return (
             <div>
                 <FlowHeader isViewed={this.state.isViewed}>
                     <TitleContainer>
-                        <StepTitle>Getting Started</StepTitle>
+                        <StepTitle>Git Init</StepTitle>
                     </TitleContainer>
                     <TermsContainer>
                         <Terms term='Repository' >
@@ -49,25 +51,19 @@ class Start extends React.Component {
                 </TermsDescription>
 
                 <NextStepContainer isActive={this.state.isActive}>
-                    <TwoStep>
+                    <OneStep>
                         <div style={NextStepBox}>
                             <p>
                                 If you're starting work on someone else's existing project that already uses git, you will need to clone it.
                             </p>
-                            <button onClick={() => this.onNextStep("clone")} className="btn btn-lg btn-black">Cloning a Repo</button>
+                            <button onClick={this.onNextStep} className="btn btn-lg btn-black">Cloning a Repo</button>
                         </div>
 
-                        <div style={NextStepBox}>
-                            <p>
-                                If you're starting your own project, or adding git to a project you've already been working on, you will need to initialize your project.
-                            </p>
-                            <button onClick={() => this.onNextStep("init")} className="btn btn-lg btn-black">Initializing a Repo</button>
-                        </div>
-                    </TwoStep>
+                    </OneStep>
                 </NextStepContainer>
             </div>
         )
     }
 }
 
-export default Start;
+export default Init;

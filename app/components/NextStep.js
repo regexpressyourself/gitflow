@@ -6,19 +6,18 @@ class NextStep extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            blurb: "",
             link: "",
             buttonText: "",
             linkText: ""
         }
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.setState({
-            blurb: this.props.blurb,
             link: this.props.link,
             buttonText: this.props.buttonText,
-            linkText: this.props.linkText
+            linkText: this.props.linkText,
+            onNextStep: this.props.onNextStep
             });
 
     }
@@ -26,10 +25,12 @@ class NextStep extends React.Component {
         return (
             <div style={NextStepBox}>
                 <p>
-                    {this.state.blurb}
-                    <Link to={this.state.link}>{this.state.linkText}</Link>.
+                    {this.props.children}
+                    <Link to={this.state.link}> {this.state.linkText}</Link>.
                 </p>
-                <Link to={this.state.link}><button className="btn btn-lg btn-black">{this.state.buttonText}</button></Link>
+                <Link to={this.state.link}>
+                    <button onClick={this.state.onNextStep} className="btn btn-lg btn-black">{this.state.buttonText}</button>
+                </Link>
             </div>
         )
     }
