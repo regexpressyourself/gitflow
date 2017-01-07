@@ -15,6 +15,12 @@ let styles = {
         margin: '0 auto',
         height: '10em'
     },
+    OneStepLine: {
+        width: '5px',
+        borderRight: '5px solid black',
+        margin: '0 auto',
+        height: '20em'
+    },
     ArrowLine: {
         width: '0',
         height: '0',
