@@ -7,17 +7,20 @@ class FlowHeader extends React.Component {
         super(props);
         this.state = {
             title: "",
-            terms: ""
+            terms: "",
+            isViewed: false
         }
     }
     componentDidRender() {
         if (Array.isArray(this.props.children) &&
             this.props.children[0]             &&
             this.props.children[1]) {
+            // TODO error check here
 
             this.setState({
                 title: this.props.children[0],
-                terms: this.props.children[1]
+                terms: this.props.children[1],
+                isViewed: this.props.isViewed
             });
         }
     }
