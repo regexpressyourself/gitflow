@@ -2,9 +2,11 @@
 body{
     color: #191414 ;
     padding-bottom: 75px;
+    font-size: 1em;
 }
 p{
     text-align: left;
+    font-size: 2em;
 }
 h1 {
     font-weight: 600;
