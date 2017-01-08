@@ -56,7 +56,7 @@ class Init extends React.Component {
                             <p>
                                 After initializing git, I recommend creating a new "branch" to hold your work. Learn more about that here:
                             </p>
-                            <button onClick={this.onNextStep} className="btn btn-lg btn-black">Creating a New Branchcloning </button>
+                            <button onClick={this.onNextStep} className="btn btn-lg btn-black">Creating a New Branch</button>
                         </div>
 
                     </OneStep>
