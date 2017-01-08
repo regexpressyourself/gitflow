@@ -1,25 +1,26 @@
 let styles = {
     TermsBg: {
         paddingTop: '10em',
-        height: '25em',
+        minHeight: '25vh',
         borderLeft: '2.5px solid black'
     },
     StepTitleStyle: {
         textAlign: 'right',
-        height: '25em',
-        borderRight: '2.5px solid black'
+        minHeight: '25vh',
+        borderRight: '2.5px solid black',
+        paddingBotton: '10em'
     },
     StepLine: {
         width: '5px',
         borderRight: '5px solid black',
         margin: '0 auto',
-        height: '10em'
+        height: '10vh'
     },
     OneStepLine: {
         width: '5px',
         borderRight: '5px solid black',
         margin: '0 auto',
-        height: '20em'
+        minHeight: '20em'
     },
     ArrowLine: {
         width: '0',
