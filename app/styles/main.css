@@ -24,11 +24,16 @@ h4 {
 .jumbotron {
     background-color: #fff;
 }
-.main-container {
-    margin: 0 auto;
-    padding: 0 20%;
+.float-right {
+    float: right;
 }
 
+.float-left{
+    float: left;
+}
+.flex {
+    display: flex;
+}
 .next-step {
     margin: 50px 0;
 }
