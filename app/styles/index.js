@@ -1,25 +1,26 @@
 let styles = {
     TermsBg: {
         paddingTop: '10em',
-        height: '25em',
+        minHeight: '25vh',
         borderLeft: '2.5px solid black'
     },
     StepTitleStyle: {
         textAlign: 'right',
-        height: '25em',
-        borderRight: '2.5px solid black'
+        minHeight: '25vh',
+        borderRight: '2.5px solid black',
+        paddingBotton: '10em'
     },
     StepLine: {
         width: '5px',
         borderRight: '5px solid black',
         margin: '0 auto',
-        height: '10em'
+        height: '10vh'
     },
     OneStepLine: {
         width: '5px',
         borderRight: '5px solid black',
         margin: '0 auto',
-        height: '20em'
+        minHeight: '20em'
     },
     ArrowLine: {
         width: '0',
@@ -41,10 +42,17 @@ let styles = {
     NextStepBox: {
         padding: '10px',
         border: '1px solid black',
-        borderRadius: '10px'
+        borderRadius: '10px',
+        maxWidth: '400px',
+        margin: '0 auto'
     },
     TermsDescriptionStyles: {
-        margin: '20px auto'
+        margin: '20px auto',
+        border: '1px solid black',
+        borderRadius: '10px',
+        padding: '20px',
+        maxWidth: '500px'
     }
+
 }
 module.exports = styles;

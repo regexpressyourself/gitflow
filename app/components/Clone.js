@@ -30,8 +30,7 @@ class Clone extends React.Component {
         this.setState({
             isActive: false
         });
-        this.state.onNextStep("init");
-
+        this.state.onNextStep("branch");
     }
     render() {
         return (
@@ -41,22 +40,22 @@ class Clone extends React.Component {
                         <StepTitle>Git Clone</StepTitle>
                     </TitleContainer>
                     <TermsContainer>
-                        <Terms term='Repository' >
-                            Another word for "project" in git lingo
+                        <Terms isCode="true" term='git clone <your_repository>' >
+                            Creates a copy of an existing repository on your computer
                         </Terms>
                     </TermsContainer>
                 </FlowHeader>
                 <TermsDescription>
-                    Git keeps your projects in what's called a <i><b>repository</b></i>, or repo for short. Your repository is all of the files in a given project folder. Where to start with your repository depends on what your project looks like right now.
+                    <b>Cloning</b> a repository allows you to start working on an existing project that already has git enabled. Cloning simply creates a sopy of the repository on your computer. You can clone a repository by running <code>git clone your_repository</code>, where <code>your_repository</code> is the address of the git repository. Most often, you will clone from a web host such as GitHub.
                 </TermsDescription>
 
                 <NextStepContainer isActive={this.state.isActive}>
                     <OneStep>
                         <div style={NextStepBox}>
                             <p>
-                                If you're starting work on someone else's existing project that already uses git, you will need to clone it.
+                                After cloning a repository, I recommend creating a new "branch" to hold your work. Learn more about that here:
                             </p>
-                            <button onClick={this.onNextStep} className="btn btn-lg btn-black">Cloning a Repo</button>
+                            <button onClick={this.onNextStep} className="btn btn-lg btn-black">Creating a New Branch</button>
                         </div>
 
                     </OneStep>

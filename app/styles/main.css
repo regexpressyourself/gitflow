@@ -2,9 +2,11 @@
 body{
     color: #191414 ;
     padding-bottom: 75px;
+    font-size: 1em;
 }
 p{
     text-align: left;
+    font-size: 2em;
 }
 h1 {
     font-weight: 600;
@@ -24,11 +26,16 @@ h4 {
 .jumbotron {
     background-color: #fff;
 }
-.main-container {
-    margin: 0 auto;
-    padding: 0 20%;
+.float-right {
+    float: right;
 }
 
+.float-left{
+    float: left;
+}
+.flex {
+    display: flex;
+}
 .next-step {
     margin: 50px 0;
 }
@@ -74,6 +81,11 @@ h4 {
 }
 
 .slide-leave {
-    transform: translate(0, -100%);
+    opacity: 0;
 
 }
+
+    .main-container{
+        margin: 0 auto;
+        max-width: 90%;
+    }

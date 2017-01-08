@@ -9,7 +9,8 @@ import TitleContainer    from './TitleContainer';
 import TermsDescription  from './TermsDescription';
 import FlowHeader        from './FlowHeader';
 import NextStepContainer from './NextStepContainer';
-import { NextStepBox } from '../styles';
+import { NextStepBox} from '../styles';
+import '../styles/main.css';
 
 class Start extends React.Component {
     constructor(props) {
@@ -50,14 +51,14 @@ class Start extends React.Component {
 
                 <NextStepContainer isActive={this.state.isActive}>
                     <TwoStep>
-                        <div style={NextStepBox}>
+                        <div style={NextStepBox} className='float-right'>
                             <p>
                                 If you're starting work on someone else's existing project that already uses git, you will need to clone it.
                             </p>
                             <button onClick={() => this.onNextStep("clone")} className="btn btn-lg btn-black">Cloning a Repo</button>
                         </div>
 
-                        <div style={NextStepBox}>
+                        <div style={NextStepBox} className="float-left">
                             <p>
                                 If you're starting your own project, or adding git to a project you've already been working on, you will need to initialize your project.
                             </p>

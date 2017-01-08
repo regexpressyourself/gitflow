@@ -12,7 +12,7 @@ import FlowHeader        from './FlowHeader';
 import NextStepContainer from './NextStepContainer';
 import { NextStepBox } from '../styles';
 
-class Init extends React.Component {
+class Add extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -30,33 +30,43 @@ class Init extends React.Component {
         this.setState({
             isActive: false
         });
-        this.state.onNextStep("branch");
-
+        this.state.onNextStep("commit");
     }
     render() {
         return (
             <div>
                 <FlowHeader isViewed={this.state.isViewed}>
                     <TitleContainer>
-                        <StepTitle>Git Init</StepTitle>
+                        <StepTitle>Git Add</StepTitle>
                     </TitleContainer>
                     <TermsContainer>
-                        <Terms isCode="true" term="git init" >
-                            Creates .git folder and enables git for your project
+                        <Terms isCode="true" term="git add <filename>" >
+                            Adds the changes in a given file to git
+                        </Terms>
+                        <Terms term="Stage">
+                            Git lingo for "save." More or less synonymous with "add."
                         </Terms>
                     </TermsContainer>
                 </FlowHeader>
                 <TermsDescription>
-                    You can bootstrap a new repository by using the <code>git init</code> command at the top folder of your project. This will create a .git folder for you, which will store the different versions of your files in git's own way. Running <code>git init</code> is all that's needed to start using git.
+                    After you've made changes, you will want to save them. Saving in git is a two step process: "staging" and "commiting". Don't worry about commiting for now, we will first talk about staging here.
+                    <br/> <br/>
+                    In git lingo, "staging" or "adding" files sets them up (or "stages them") to be saved. To stage a given file, you will use the command <code>git add filename</code>, where <code>filename</code> is the name of the file you want to save.
+                    <br/> <br/>
+                    You can add multiple files at once by stringing them together, e.g. <code>git add file1 file2 file3</code>.
+                    <br/> <br/>
+                    Alternatively, you can add all the current changes (all the changes listed under <code>git status</code>) by replacing the filename with a period:
+                    <br/>
+                    <code>git add .</code>
                 </TermsDescription>
 
                 <NextStepContainer isActive={this.state.isActive}>
                     <OneStep>
                         <div style={NextStepBox}>
                             <p>
-                                After initializing git, I recommend creating a new "branch" to hold your work. Learn more about that here:
+                                Once your files are staged, you can move on to commiting them.
                             </p>
-                            <button onClick={this.onNextStep} className="btn btn-lg btn-black">Creating a New Branch</button>
+                            <button onClick={this.onNextStep} className="btn btn-lg btn-black">Commiting Your Changes</button>
                         </div>
 
                     </OneStep>
@@ -66,4 +76,4 @@ class Init extends React.Component {
     }
 }
 
-export default Init;
+export default Add;
