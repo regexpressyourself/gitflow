@@ -8,7 +8,7 @@ class First extends React.Component {
             <div>
                 <h1>First Things First</h1>
                 <p>
-                    Before we get to git itself, let's talk more about what exactly it is and dispell some of the misconceptions that surround it. Feel free to <Link to='/flow/start'>skip this section</Link> and get started instead.
+                    Before we get to git itself, let's talk more about what exactly it is and dispell some of the misconceptions that surround it. Feel free to <Link to='/flow'>skip this section</Link> and get started instead.
                 </p>
                 <h2>What is Git?</h2>
                 <p>
@@ -52,7 +52,7 @@ class First extends React.Component {
                 </p>
                 <h2>Enough Talk</h2>
                 <p>
-                    Let's <Link to='/flow/start'>get to gitting!</Link>
+                    Let's <Link to='/flow'>get to gitting!</Link>
                 </p>
             </div>
         )
