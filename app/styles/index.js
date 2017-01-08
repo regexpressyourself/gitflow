@@ -42,10 +42,17 @@ let styles = {
     NextStepBox: {
         padding: '10px',
         border: '1px solid black',
-        borderRadius: '10px'
+        borderRadius: '10px',
+        maxWidth: '400px',
+        margin: '0 auto'
     },
     TermsDescriptionStyles: {
-        margin: '20px auto'
+        margin: '20px auto',
+        border: '1px solid black',
+        borderRadius: '10px',
+        padding: '20px',
+        maxWidth: '500px'
     }
+
 }
 module.exports = styles;
