@@ -5,6 +5,8 @@ import Start from './Start';
 import Init from './Init';
 import Branch from './Branch';
 import Clone from './Clone';
+import Work from './Work';
+import Add from './Add';
 
 class Flow extends React.Component {
     constructor(props) {
@@ -31,17 +33,28 @@ class Flow extends React.Component {
                     branch:  <Branch onNextStep={this.onNextStep.bind(this)}/>
                 });
                 break;
+            case "work":
+                this.setState({
+                    branch:  <Work onNextStep={this.onNextStep.bind(this)}/>
+                });
+                break;
         }
     }
     render() {
+        /* {this.state.init}
+         * {this.state.clone}
+         * {this.state.branch}
+         * {this.state.work}*/
         return (
 
             <div>
                 <ReactCSSTransitionGroup transitionName="appear" transitionEnterTimeout={600} transitionLeaveTimeout={500} >
                     <Start onNextStep={this.onNextStep.bind(this)}/>
-                    {this.state.init}
-                    {this.state.clone}
-                    {this.state.branch}
+                    <Init></Init>
+                    <Clone></Clone>
+                    <Branch></Branch>
+                    <Work></Work>
+                    <Add></Add>
                 </ReactCSSTransitionGroup>
             </div>
 
