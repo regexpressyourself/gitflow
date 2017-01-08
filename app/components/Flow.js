@@ -3,7 +3,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import '../styles/main.css';
 import Start from './Start';
 import Init from './Init';
-
+import Branch from './Branch';
 import Clone from './Clone';
 
 class Flow extends React.Component {
@@ -26,14 +26,23 @@ class Flow extends React.Component {
                     clone:  <Clone onNextStep={this.onNextStep.bind(this)}/>
                 });
                 break;
+            case "branch":
+                this.setState({
+                    branch:  <Branch onNextStep={this.onNextStep.bind(this)}/>
+                });
+                break;
         }
     }
     render() {
         return (
+
             <div>
-            <Start onNextStep={this.onNextStep.bind(this)}/>
-            {this.state.init}
-            {this.state.clone}
+                <ReactCSSTransitionGroup transitionName="appear" transitionEnterTimeout={600} transitionLeaveTimeout={500} >
+                    <Start onNextStep={this.onNextStep.bind(this)}/>
+                    {this.state.init}
+                    {this.state.clone}
+                    {this.state.branch}
+                </ReactCSSTransitionGroup>
             </div>
 
         )
