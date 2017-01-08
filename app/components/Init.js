@@ -30,7 +30,7 @@ class Init extends React.Component {
         this.setState({
             isActive: false
         });
-        this.state.onNextStep("init");
+        this.state.onNextStep("branch");
 
     }
     render() {
@@ -41,22 +41,22 @@ class Init extends React.Component {
                         <StepTitle>Git Init</StepTitle>
                     </TitleContainer>
                     <TermsContainer>
-                        <Terms term='Repository' >
-                            Another word for "project" in git lingo
+                        <Terms isCode="true" term="git init" >
+                            Creates .git folder and enables git for your project
                         </Terms>
                     </TermsContainer>
                 </FlowHeader>
                 <TermsDescription>
-                    Git keeps your projects in what's called a <i><b>repository</b></i>, or repo for short. Your repository is all of the files in a given project folder. Where to start with your repository depends on what your project looks like right now.
+                    You can bootstrap a new repository by using the <code>git init</code> command at the top folder of your project. This will create a .git folder for you, which will store the different versions of your files in git's own way. Running <code>git init</code> is all that's needed to start using git.
                 </TermsDescription>
 
                 <NextStepContainer isActive={this.state.isActive}>
                     <OneStep>
                         <div style={NextStepBox}>
                             <p>
-                                If you're starting work on someone else's existing project that already uses git, you will need to clone it.
+                                After initializing git, I recommend creating a new "branch" to hold your work. Learn more about that here:
                             </p>
-                            <button onClick={this.onNextStep} className="btn btn-lg btn-black">Cloning a Repo</button>
+                            <button onClick={this.onNextStep} className="btn btn-lg btn-black">Creating a New Branchcloning </button>
                         </div>
 
                     </OneStep>
