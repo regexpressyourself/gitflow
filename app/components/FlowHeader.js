@@ -26,7 +26,7 @@ class FlowHeader extends React.Component {
     }
     render() {
         return (
-        <div className="row">
+        <div className="row flex">
             <div className="col-xs-6" style={StepTitleStyle}>
                 {this.props.children[0]}
             </div>
