@@ -10,11 +10,17 @@ class Terms extends React.Component {
             term: ""
         }
     }
-    componentWillMount() {
-        this.setState({
-            term: this.props.term
-        });
-
+    componentDidMount() {
+        if(this.props.isCode) {
+            this.setState({
+                term: <code>{this.props.term}</code>
+            })
+        }
+        else {
+            this.setState({
+                term: this.props.term
+            });
+        }
     }
     render(){
         // this.props.children holds the definition of a term
