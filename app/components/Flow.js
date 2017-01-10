@@ -1,12 +1,18 @@
-import React        from 'react';
+import React                   from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import '../styles/main.css';
-import Start from './Start';
-import Init from './Init';
-import Branch from './Branch';
-import Clone from './Clone';
-import Work from './Work';
-import Add from './Add';
+import Start    from './Start';
+import Init     from './Init';
+import Branch   from './Branch';
+import Clone    from './Clone';
+import Work     from './Work';
+import Add      from './Add';
+import Commit   from './Commit';
+import Push     from './Push';
+import Checkout from './Checkout';
+import Pull     from './Pull';
+import Merge    from './Merge';
+import Diff     from './Diff';
 
 class Flow extends React.Component {
     constructor(props) {
@@ -35,16 +41,58 @@ class Flow extends React.Component {
                 break;
             case "work":
                 this.setState({
-                    branch:  <Work onNextStep={this.onNextStep.bind(this)}/>
+                    work:  <Work onNextStep={this.onNextStep.bind(this)}/>
+                });
+                break;
+            case "add":
+                this.setState({
+                    add:  <Add onNextStep={this.onNextStep.bind(this)}/>
+                });
+                break;
+            case "commit":
+                this.setState({
+                    commit:  <Commit onNextStep={this.onNextStep.bind(this)}/>
+                });
+                break;
+            case "push":
+                this.setState({
+                    push:  <Push onNextStep={this.onNextStep.bind(this)}/>
+                });
+                break;
+            case "checkout":
+                this.setState({
+                    checkout:  <Checkout onNextStep={this.onNextStep.bind(this)}/>
+                });
+                break;
+            case "pull":
+                this.setState({
+                    pull:  <Pull onNextStep={this.onNextStep.bind(this)}/>
+                });
+                break;
+            case "merge":
+                this.setState({
+                    merge:  <Merge onNextStep={this.onNextStep.bind(this)}/>
+                });
+                break;
+            case "diff":
+                this.setState({
+                    diff:  <Diff onNextStep={this.onNextStep.bind(this)}/>
                 });
                 break;
         }
     }
     render() {
         /* {this.state.init}
-         * {this.state.clone}
          * {this.state.branch}
-         * {this.state.work}*/
+         * {this.state.clone}
+         * {this.state.work}
+         * {this.state.add}
+         * {this.state.commit}
+         * {this.state.push}
+         * {this.state.checkout}
+         * {this.state.pull}
+         * {this.state.merge}
+         * {this.state.diff}*/
         return (
 
             <div>
@@ -55,6 +103,7 @@ class Flow extends React.Component {
                     <Branch></Branch>
                     <Work></Work>
                     <Add></Add>
+                    <Commit></Commit>
                 </ReactCSSTransitionGroup>
             </div>
 
