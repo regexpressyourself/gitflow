@@ -51,13 +51,13 @@ class Add extends React.Component {
                 <TermsDescription>
                     After you've made changes, you will want to save them. Saving in git is a two step process: "staging" and "commiting". Don't worry about commiting for now, we will first talk about staging here.
                     <br/> <br/>
-                    In git lingo, "staging" or "adding" files sets them up (or "stages them") to be saved. To stage a given file, you will use the command <code>git add filename</code>, where <code>filename</code> is the name of the file you want to save.
+                    In git lingo, "staging" or "adding" files sets them up (or "stages them") to be saved. To stage a given file, you will use the command <kbd>git add filename</kbd>, where <kbd>filename</kbd> is the name of the file you want to save.
                     <br/> <br/>
-                    You can add multiple files at once by stringing them together, e.g. <code>git add file1 file2 file3</code>.
+                    You can add multiple files at once by stringing them together, e.g. <kbd>git add file1 file2 file3</kbd>.
                     <br/> <br/>
-                    Alternatively, you can add all the current changes (all the changes listed under <code>git status</code>) by replacing the filename with a period:
+                    Alternatively, you can add all the current changes (all the changes listed under <kbd>git status</kbd>) by replacing the filename with a period:
                     <br/>
-                    <code>git add .</code>
+                    <kbd>git add .</kbd>
                 </TermsDescription>
 
                 <NextStepContainer isActive={this.state.isActive}>

@@ -13,7 +13,7 @@ class Terms extends React.Component {
     componentDidMount() {
         if(this.props.isCode) {
             this.setState({
-                term: <code>{this.props.term}</code>
+                term: <kbd>{this.props.term}</kbd>
             })
         }
         else {
