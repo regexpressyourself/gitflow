@@ -12,7 +12,7 @@ import FlowHeader        from './FlowHeader';
 import NextStepContainer from './NextStepContainer';
 import { NextStepBox } from '../styles';
 
-class Add extends React.Component {
+class Commit extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -37,11 +37,11 @@ class Add extends React.Component {
             <div>
                 <FlowHeader isViewed={this.state.isViewed}>
                     <TitleContainer>
-                        <StepTitle>Git Add</StepTitle>
+                        <StepTitle>Git Commit</StepTitle>
                     </TitleContainer>
                     <TermsContainer>
-                        <Terms isCode="true" term="git add <filename>" >
-                            Adds the changes in a given file to git
+                        <Terms isCode="true" term="git commit" >
+                            Commits
                         </Terms>
                         <Terms term="Stage">
                             Git lingo for "save." More or less synonymous with "add."
@@ -76,4 +76,4 @@ class Add extends React.Component {
     }
 }
 
-export default Add;
+export default Commit;

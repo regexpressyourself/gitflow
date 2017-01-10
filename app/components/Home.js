@@ -5,7 +5,7 @@ class Home extends React.Component {
     render() {
         return (
             <div>
-                <h1>Conversational Git</h1>
+                <h1>Git Flow</h1>
                 <p className="lead"><i>Learn git without the techno babble</i></p>
                 <br/>
                 <p>
