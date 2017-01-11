@@ -31,7 +31,7 @@ class Commit extends React.Component {
         this.setState({
             isActive: false
         });
-        this.state.onNextStep("push");
+        this.state.onNextStep("checkout");
     }
     render() {
         return (
@@ -58,7 +58,7 @@ class Commit extends React.Component {
                     <OneStep>
                         <div style={NextStepBox}>
                             <p>
-                                The steps we've covered so far are really all you need to use git on its own. However, most people use hosting services like GitHub to collaborate with other. The next few steps are specific to that workflow.
+                                Once you have some changes, it's time to add them back into the <kbd>master</kbd> branch. 
                                 <br/><br/>
                                 The next step will discuss how to push your changes to GitHub.
                             </p>

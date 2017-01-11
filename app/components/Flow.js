@@ -41,6 +41,11 @@ class Flow extends React.Component {
 
         let isLastStep = true;
         switch (nextComponent) {
+            case "push":
+                this.setState({
+                    push:  <Push isActive={isLastStep} onNextStep={this.onNextStep.bind(this)}/>
+                });
+                isLastStep = false;
             case "diff":
                 this.setState({
                     diff:  <Diff isActive={isLastStep} onNextStep={this.onNextStep.bind(this)}/>
@@ -59,11 +64,6 @@ class Flow extends React.Component {
             case "checkout":
                 this.setState({
                     checkout:  <Checkout isActive={isLastStep} onNextStep={this.onNextStep.bind(this)}/>
-                });
-                isLastStep = false;
-            case "push":
-                this.setState({
-                    push:  <Push isActive={isLastStep} onNextStep={this.onNextStep.bind(this)}/>
                 });
                 isLastStep = false;
             case "commit":
@@ -132,11 +132,11 @@ class Flow extends React.Component {
             {this.state.work}
             {this.state.add}
             {this.state.commit}
-            {this.state.push}
             {this.state.checkout}
             {this.state.pull}
             {this.state.merge}
             {this.state.diff}
+            {this.state.push}
                 </ReactCSSTransitionGroup>
             </div>
 
