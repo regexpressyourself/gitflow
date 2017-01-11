@@ -12,7 +12,7 @@ import FlowHeader        from './FlowHeader';
 import NextStepContainer from './NextStepContainer';
 import { NextStepBox } from '../styles';
 
-class Add extends React.Component {
+class Push extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -37,7 +37,7 @@ class Add extends React.Component {
             <div>
                 <FlowHeader isViewed={this.state.isViewed}>
                     <TitleContainer>
-                        <StepTitle>Git Add</StepTitle>
+                        <StepTitle>Git Push</StepTitle>
                     </TitleContainer>
                     <TermsContainer>
                         <Terms isCode="true" term="git add <filename>" >
@@ -76,4 +76,4 @@ class Add extends React.Component {
     }
 }
 
-export default Add;
+export default Push;

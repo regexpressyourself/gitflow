@@ -12,7 +12,7 @@ import FlowHeader        from './FlowHeader';
 import NextStepContainer from './NextStepContainer';
 import { NextStepBox } from '../styles';
 
-class Branch extends React.Component {
+class Checkout extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -38,7 +38,7 @@ class Branch extends React.Component {
             <div>
                 <FlowHeader isViewed={this.state.isViewed}>
                     <TitleContainer>
-                        <StepTitle>Git Branch</StepTitle>
+                        <StepTitle>Git Checkout</StepTitle>
                     </TitleContainer>
                     <TermsContainer>
                         <Terms term="Branch" >
@@ -75,4 +75,4 @@ class Branch extends React.Component {
     }
 }
 
-export default Branch;
+export default Checkout;
