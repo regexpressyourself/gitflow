@@ -42,32 +42,27 @@ class Commit extends React.Component {
                     </TitleContainer>
                     <TermsContainer>
                         <Terms isCode="true" term="git commit" >
-                            Commits
-                        </Terms>
-                        <Terms term="Stage">
-                            Git lingo for "save." More or less synonymous with "add."
+                            Creates a new commit containing all the changes you had staged.
                         </Terms>
                     </TermsContainer>
                 </FlowHeader>
                 <TermsDescription>
-                    After you've made changes, you will want to save them. Saving in git is a two step process: "staging" and "commiting". Don't worry about commiting for now, we will first talk about staging here.
-                    <br/> <br/>
-                    In git lingo, "staging" or "adding" files sets them up (or "stages them") to be saved. To stage a given file, you will use the command <kbd>git add filename</kbd>, where <kbd>filename</kbd> is the name of the file you want to save.
-                    <br/> <br/>
-                    You can add multiple files at once by stringing them together, e.g. <kbd>git add file1 file2 file3</kbd>.
-                    <br/> <br/>
-                    Alternatively, you can add all the current changes (all the changes listed under <kbd>git status</kbd>) by replacing the filename with a period:
-                    <br/>
-                    <kbd>git add .</kbd>
+                    Once you've staged some changes, it's time for the second step in saving: commiting. Commiting is like taking a snap shot of your project and saving it. Every commit has two things: what was changed, and a message describing what was changed.
+                    <br/><br/>
+                    You can commit your changes by running <kbd>git commit -m "Your message here"</kbd>.
+                    <br/><br/>
+                    By default, your commit will contain all the changes you had staged at the time of commiting. Generally, the more often you commit the better. Try to make a habit of commiting your changes every time you reach a breaking point.
                 </TermsDescription>
 
                 <NextStepContainer isActive={this.state.isActive}>
                     <OneStep>
                         <div style={NextStepBox}>
                             <p>
-                                Once your files are staged, you can move on to commiting them.
+                                The steps we've covered so far are really all you need to use git on its own. However, most people use hosting services like GitHub to collaborate with other. The next few steps are specific to that workflow.
+                                <br/><br/>
+                                The next step will discuss how to push your changes to GitHub.
                             </p>
-                            <button onClick={this.onNextStep} className="btn btn-lg btn-black">Commiting Your Changes</button>
+                            <button onClick={this.onNextStep} className="btn btn-lg btn-black">Pushing Your Changes</button>
                         </div>
 
                     </OneStep>
