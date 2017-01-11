@@ -16,20 +16,22 @@ class Start extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isActive: true,
+            isActive: false,
             isViewed: true
         }
         this.onNextStep = this.onNextStep.bind(this);
     }
     componentDidMount() {
         this.setState({
-            onNextStep: this.props.onNextStep
+            onNextStep: this.props.onNextStep,
+            isActive: this.props.isActive
         });
     }
     onNextStep(nextComponent) {
         this.setState({
             isActive: false
         });
+
         this.state.onNextStep(nextComponent);
     }
     render() {
