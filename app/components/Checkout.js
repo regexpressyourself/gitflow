@@ -51,13 +51,7 @@ class Checkout extends React.Component {
                     </TermsContainer>
                 </FlowHeader>
                 <TermsDescription>
-                    Git's main strength is letting people work together on one project without worrying about overwriting each others' progress. This is done primarily through branches. Branches are like different versions of the project, independent of one another.
-                    <br/><br/>
-                    For example, if I am using git to write an article with some friends, I might create a new branch to add the section I am in charge of. While I am working in my branch, I am isolated from the work my friends are doing, and vice versa. There is no risk of them deleting my new section, and I am safe from deleting theirs. We will talk about how to combine our work later.
-                    <br/><br/>
-                    Every git repository starts with one branch: <kbd>master</kbd>. From master, you can create as many branches as you want. I recommend always creating a branch for your work, keeping master as a clean slate. We will talk more about why later.
-                    <br/><br/>
-                    You can create a branch by running: <kbd>git branch new_branch</kbd> where <kbd>new_branch</kbd> is the name of your branch (it can even be "new_branch" if you're not feeling very creative).
+                    Remember back on the "Branch" step, we had to checkout our new branch. Now that we have some changes
                 </TermsDescription>
 
                 <NextStepContainer isActive={this.state.isActive}>
