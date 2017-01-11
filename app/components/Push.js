@@ -16,21 +16,22 @@ class Push extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isActive: true,
+            isActive: false,
             isViewed: true
         }
         this.onNextStep = this.onNextStep.bind(this);
     }
     componentDidMount() {
         this.setState({
-            onNextStep: this.props.onNextStep
+            onNextStep: this.props.onNextStep,
+            isActive: this.props.isActive
         });
     }
     onNextStep() {
         this.setState({
             isActive: false
         });
-        this.state.onNextStep("commit");
+        this.state.onNextStep("prepull");
     }
     render() {
         return (
@@ -40,7 +41,7 @@ class Push extends React.Component {
                         <StepTitle>Git Push</StepTitle>
                     </TitleContainer>
                     <TermsContainer>
-                        <Terms isCode="true" term="git add <filename>" >
+                        <Terms isCode="true" term="git push" >
                             Adds the changes in a given file to git
                         </Terms>
                         <Terms term="Stage">

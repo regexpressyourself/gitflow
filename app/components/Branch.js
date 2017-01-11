@@ -16,14 +16,15 @@ class Branch extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isActive: true,
+            isActive: false,
             isViewed: true
         }
         this.onNextStep = this.onNextStep.bind(this);
     }
     componentDidMount() {
         this.setState({
-            onNextStep: this.props.onNextStep
+            onNextStep: this.props.onNextStep,
+            isActive: this.props.isActive
         });
     }
     onNextStep() {
@@ -47,6 +48,9 @@ class Branch extends React.Component {
                         <Terms isCode="true" term="git branch <branch_name>" >
                             Creates a new branch
                         </Terms>
+                        <Terms isCode="true" term="git checkout <branch_name>" >
+                            Start working on the new branch
+                        </Terms>
                     </TermsContainer>
                 </FlowHeader>
                 <TermsDescription>
@@ -57,6 +61,8 @@ class Branch extends React.Component {
                     Every git repository starts with one branch: <kbd>master</kbd>. From master, you can create as many branches as you want. I recommend always creating a branch for your work, keeping master as a clean slate. We will talk more about why later.
                     <br/><br/>
                     You can create a branch by running: <kbd>git branch new_branch</kbd> where <kbd>new_branch</kbd> is the name of your branch (it can even be "new_branch" if you're not feeling very creative).
+                    <br/><br/>
+                    Finally, you'll want to checkout your new branch. You can do this by running <kbd>git checkout new_branch</kbd>. 
                 </TermsDescription>
 
                 <NextStepContainer isActive={this.state.isActive}>

@@ -19,6 +19,9 @@ h4 {
     width: 100%;
     font-weight: 600;
 }
+kbd {
+    white-space: nowrap;
+}
 
 .container {
     max-width: 70%;

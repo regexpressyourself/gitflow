@@ -27,6 +27,11 @@ class NextStepContainer extends React.Component {
                     bodyText: ""
                 });
             }
+            else {
+                this.setState({
+                    bodyText: this.props.children
+                });
+            }
         });
     }
     render() {
