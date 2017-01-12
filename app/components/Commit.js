@@ -49,20 +49,21 @@ class Commit extends React.Component {
                 <TermsDescription>
                     Once you've staged some changes, it's time for the second step in saving: commiting. Commiting is like taking a snap shot of your project and saving it. Every commit has two things: what was changed, and a message describing what was changed.
                     <br/><br/>
-                    You can commit your changes by running <kbd>git commit -m "Your message here"</kbd>.
+                    Running <kbd>git commit</kbd> will prompt you to write a commit message briefly detailing what changes you made.
                     <br/><br/>
-                    By default, your commit will contain all the changes you had staged at the time of commiting. Generally, the more often you commit the better. Try to make a habit of commiting your changes every time you reach a breaking point.
+                    You can commit and write your message all at once by running <kbd>git commit -m "Your message here"</kbd>.
+                    <br/><br/>
+                    By default, your commit will contain all the changes you had staged at the time of commiting. Generally, the more often you commit the better. Try to make a habit of commiting your changes every time you reach a breaking point. It makes going back to find bugs a lot easier.
                 </TermsDescription>
 
                 <NextStepContainer isActive={this.state.isActive}>
                     <OneStep>
                         <div style={NextStepBox}>
                             <p>
-                                Once you have some changes, it's time to add them back into the <kbd>master</kbd> branch. 
+                                Once you have some changes added and commited, it's time to go back to our trusty <kbd>master</kbd> branch.
                                 <br/><br/>
-                                The next step will discuss how to push your changes to GitHub.
                             </p>
-                            <button onClick={this.onNextStep} className="btn btn-lg btn-black">Pushing Your Changes</button>
+                            <button onClick={this.onNextStep} className="btn btn-lg btn-black">Checkout Master</button>
                         </div>
 
                     </OneStep>

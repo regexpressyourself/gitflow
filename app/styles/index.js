@@ -51,7 +51,7 @@ let styles = {
         border: '1px solid black',
         borderRadius: '10px',
         padding: '20px',
-        maxWidth: '500px'
+        maxWidth: '100%'
     }
 
 }

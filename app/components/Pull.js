@@ -31,7 +31,7 @@ class Pull extends React.Component {
         this.setState({
             isActive: false
         });
-        this.state.onNextStep("commit");
+        this.state.onNextStep("merge");
     }
     render() {
         return (
@@ -41,33 +41,28 @@ class Pull extends React.Component {
                         <StepTitle>Git Pull</StepTitle>
                     </TitleContainer>
                     <TermsContainer>
-                        <Terms isCode="true" term="git add <filename>" >
-                            Adds the changes in a given file to git
-                        </Terms>
-                        <Terms term="Stage">
-                            Git lingo for "save." More or less synonymous with "add."
+                        <Terms isCode="true" term="git pull">
+                            Retrieve changes from an online source.
                         </Terms>
                     </TermsContainer>
                 </FlowHeader>
                 <TermsDescription>
-                    After you've made changes, you will want to save them. Saving in git is a two step process: "staging" and "commiting". Don't worry about commiting for now, we will first talk about staging here.
+                    Before we combine our changes from our branch into master, we should make sure we have the most current version of master. This is not the only workable way to use git, but it has saved me the most headache. 
                     <br/> <br/>
-                    In git lingo, "staging" or "adding" files sets them up (or "stages them") to be saved. To stage a given file, you will use the command <kbd>git add filename</kbd>, where <kbd>filename</kbd> is the name of the file you want to save.
+                    Pulling changes will update your branch from any changes from a remote (cloud hosted) version of the branch. It's important to do before combining our changes, as it will save you overwriting any changes that might have been made by someone else.
                     <br/> <br/>
-                    You can add multiple files at once by stringing them together, e.g. <kbd>git add file1 file2 file3</kbd>.
+                    Pulling is very easy when everyone has followed this workflow, simply run <kbd>git pull</kbd>. The changes will be downloaded automatically.
                     <br/> <br/>
-                    Alternatively, you can add all the current changes (all the changes listed under <kbd>git status</kbd>) by replacing the filename with a period:
-                    <br/>
-                    <kbd>git add .</kbd>
+                    If you get a message saying there is no remote repository, you will just need to set up your repository with one on Github. The instructions are on Github's site. Note: this is not necessary. Git will work just fine without a remote repository.
                 </TermsDescription>
 
                 <NextStepContainer isActive={this.state.isActive}>
                     <OneStep>
                         <div style={NextStepBox}>
                             <p>
-                                Once your files are staged, you can move on to commiting them.
+                                Once you've updated master, it's time to add in our changes.
                             </p>
-                            <button onClick={this.onNextStep} className="btn btn-lg btn-black">Commiting Your Changes</button>
+                            <button onClick={this.onNextStep} className="btn btn-lg btn-black">Merging Branches</button>
                         </div>
 
                     </OneStep>

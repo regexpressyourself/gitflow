@@ -31,43 +31,40 @@ class Diff extends React.Component {
         this.setState({
             isActive: false
         });
-        this.state.onNextStep("commit");
+        this.state.onNextStep("merge");
     }
     render() {
         return (
             <div>
                 <FlowHeader isViewed={this.state.isViewed}>
                     <TitleContainer>
-                        <StepTitle>Git diff</StepTitle>
+                        <StepTitle>Git Diff</StepTitle>
                     </TitleContainer>
                     <TermsContainer>
-                        <Terms isCode="true" term="git add <filename>" >
-                            Adds the changes in a given file to git
-                        </Terms>
-                        <Terms term="Stage">
-                            Git lingo for "save." More or less synonymous with "add."
+                        <Terms isCode="true" term="git diff" >
+                            See changes between two branches, commits, etc
                         </Terms>
                     </TermsContainer>
                 </FlowHeader>
                 <TermsDescription>
-                    After you've made changes, you will want to save them. Saving in git is a two step process: "staging" and "commiting". Don't worry about commiting for now, we will first talk about staging here.
-                    <br/> <br/>
-                    In git lingo, "staging" or "adding" files sets them up (or "stages them") to be saved. To stage a given file, you will use the command <kbd>git add filename</kbd>, where <kbd>filename</kbd> is the name of the file you want to save.
-                    <br/> <br/>
-                    You can add multiple files at once by stringing them together, e.g. <kbd>git add file1 file2 file3</kbd>.
-                    <br/> <br/>
-                    Alternatively, you can add all the current changes (all the changes listed under <kbd>git status</kbd>) by replacing the filename with a period:
-                    <br/>
-                    <kbd>git add .</kbd>
+                    So your merge didn't work. This usually means git just didn't know the best way to combine your changes. It's no need to fear.
+                    <br/><br/>
+                    When the merge failed, at least one file should have been listed as "in conflict". We will refer to this file as <kbd>{"<filename>"}</kbd> here.
+                    <br/><br/>
+                    The easiest way to debug a conflicted file from the command line is to run <kbd>git diff {"<your_branch>"} master {"<filename>"}</kbd>.
+                    <br/><br/>
+                    The diff command show the differences, and will make finding the conflicts easier.
+                    <br/><br/>
+                    If possible, I recommend using some kind of GUI or TUI to fix conflicts, as it can make things a lot easier.
                 </TermsDescription>
 
                 <NextStepContainer isActive={this.state.isActive}>
                     <OneStep>
                         <div style={NextStepBox}>
                             <p>
-                                Once your files are staged, you can move on to commiting them.
+                                Once you fix your conflicts, you can go back to merging.
                             </p>
-                            <button onClick={this.onNextStep} className="btn btn-lg btn-black">Commiting Your Changes</button>
+                            <button onClick={this.onNextStep} className="btn btn-lg btn-black">Merging Branches</button>
                         </div>
 
                     </OneStep>
