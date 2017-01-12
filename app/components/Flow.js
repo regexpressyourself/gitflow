@@ -24,119 +24,131 @@ class Flow extends React.Component {
         }
     }
     componentDidMount() {
-        if (this.props.location.query.step) {
-            this.onNextStep(this.props.location.query.step);
+        if (!this.props.location.query.steps) {
+            this.onNextStep("start") ;
         }
         else {
-            this.onNextStep("start") ;
+            this.setState({
+                steps: this.props.location.query.steps.split(" ")
+            }, function() {
+                this.onNextStep("");
+            });
         }
     }
 
     onNextStep(nextComponent) {
 
+        let listOfSteps = this.state.steps;
+
+        if (nextComponent) {
+            listOfSteps.push(nextComponent);
+        }
+
+        this.updateUrl(listOfSteps.join("+"));
+
+        this.updateView(listOfSteps);
+    }
+
+    updateUrl(urlStepParameters) {
+
         hashHistory.push({
             pathname: '/flow/',
-            search: '?step=' + nextComponent
+            search: '?steps=' + urlStepParameters
         })
+    }
 
-        let isLastStep = true;
-        switch (nextComponent) {
-            case "push":
-                this.setState({
-                    push:  <Push isActive={isLastStep} onNextStep={this.onNextStep.bind(this)}/>
-                });
-                isLastStep = false;
-            case "diff":
-                this.setState({
-                    diff:  <Diff isActive={isLastStep} onNextStep={this.onNextStep.bind(this)}/>
-                });
-                isLastStep = false;
-            case "merge":
-                this.setState({
-                    merge:  <Merge isActive={isLastStep} onNextStep={this.onNextStep.bind(this)}/>
-                });
-                isLastStep = false;
-            case "pull":
-                this.setState({
-                    pull:  <Pull isActive={isLastStep} onNextStep={this.onNextStep.bind(this)}/>
-                });
-                isLastStep = false;
-            case "checkout":
-                this.setState({
-                    checkout:  <Checkout isActive={isLastStep} onNextStep={this.onNextStep.bind(this)}/>
-                });
-                isLastStep = false;
-            case "commit":
-                this.setState({
-                    commit:  <Commit isActive={isLastStep} onNextStep={this.onNextStep.bind(this)}/>
-                });
-                isLastStep = false;
-            case "add":
-                this.setState({
-                    add:  <Add isActive={isLastStep} onNextStep={this.onNextStep.bind(this)}/>
-                });
-                isLastStep = false;
-            case "work":
-                this.setState({
-                    work:  <Work isActive={isLastStep} onNextStep={this.onNextStep.bind(this)}/>
-                });
-                isLastStep = false;
-            case "branch":
-                this.setState({
-                    branch:  <Branch isActive={isLastStep} onNextStep={this.onNextStep.bind(this)}/>
-                });
-                isLastStep = false;
-            case "clone":
-                this.setState({
-                    clone:  <Clone isActive={isLastStep} onNextStep={this.onNextStep.bind(this)}/>,
-                    start: <Start isActive={false} onNextStep={this.onNextStep.bind(this)}/>
-                });
-                isLastStep = false;
-                break;
-            case "init":
-                this.setState({
-                    init:  <Init isActive={isLastStep} onNextStep={this.onNextStep.bind(this)}/>
-                });
-                isLastStep = false;
-            case "start":
-                this.setState({
-                    start: <Start isActive={isLastStep} onNextStep={this.onNextStep.bind(this)}/>
-                });
-                isLastStep = false;
+    updateView(listOfSteps) {
+
+        var isLastStep = false;
+
+        for (let i = 0; i < listOfSteps.length; i++) {
+
+
+            if (i === listOfSteps.length - 1) {
+                isLastStep = true;
+            }
+
+            switch (listOfSteps[i]) {
+                case "push":
+                    this.setState({
+                        push:  <Push isActive={isLastStep} onNextStep={this.onNextStep.bind(this)}/>
+                    });
+                    break;
+                case "diff":
+                    this.setState({
+                        diff:  <Diff isActive={isLastStep} onNextStep={this.onNextStep.bind(this)}/>
+                    });
+                    break;
+                case "merge":
+                    this.setState({
+                        merge:  <Merge isActive={isLastStep} onNextStep={this.onNextStep.bind(this)}/>
+                    });
+                    break;
+                case "pull":
+                    this.setState({
+                        pull:  <Pull isActive={isLastStep} onNextStep={this.onNextStep.bind(this)}/>
+                    });
+                    break;
+                case "checkout":
+                    this.setState({
+                        checkout:  <Checkout isActive={isLastStep} onNextStep={this.onNextStep.bind(this)}/>
+                    });
+                    break;
+                case "commit":
+                    this.setState({
+                        commit:  <Commit isActive={isLastStep} onNextStep={this.onNextStep.bind(this)}/>
+                    });
+                    break;
+                case "add":
+                    this.setState({
+                        add:  <Add isActive={isLastStep} onNextStep={this.onNextStep.bind(this)}/>
+                    });
+                    break;
+                case "work":
+                    this.setState({
+                        work:  <Work isActive={isLastStep} onNextStep={this.onNextStep.bind(this)}/>
+                    });
+                    break;
+                case "branch":
+                    this.setState({
+                        branch:  <Branch isActive={isLastStep} onNextStep={this.onNextStep.bind(this)}/>
+                    });
+                    break;
+                case "clone":
+                    this.setState({
+                        clone:  <Clone isActive={isLastStep} onNextStep={this.onNextStep.bind(this)}/>,
+                    });
+                    break;
+                case "init":
+                    this.setState({
+                        init:  <Init isActive={isLastStep} onNextStep={this.onNextStep.bind(this)}/>,
+                    });
+                    break;
+                case "start":
+                    this.setState({
+                        start: <Start isActive={isLastStep} onNextStep={this.onNextStep.bind(this)}/>
+                    });
+                    break;
+            }
         }
     }
 
     render(){
-
-
-        {/* <Start onNextStep={this.onNextStep.bind(this)}/>
-            <Init></Init>
-            <Clone></Clone>
-            <Branch></Branch>
-            <Work></Work>
-            <Add></Add>
-            <Commit></Commit>
-            <Push></Push>
-            <Checkout></Checkout>
-            <Merge></Merge>
-            <Diff></Diff> */}
         return (
-
             <div>
-            <ReactCSSTransitionGroup transitionName="appear" transitionEnterTimeout={600} transitionLeaveTimeout={500} >
-
-            {this.state.start}
-            {this.state.init}
-            {this.state.clone}
-            {this.state.branch}
-            {this.state.work}
-            {this.state.add}
-            {this.state.commit}
-            {this.state.checkout}
-            {this.state.pull}
-            {this.state.merge}
-            {this.state.diff}
-            {this.state.push}
+                <ReactCSSTransitionGroup transitionName="appear" transitionEnterTimeout={600} transitionLeaveTimeout={500} >
+                    {this.state.start}
+                    {this.state.init}
+                    {this.state.clone}
+                    {this.state.branch}
+                    {this.state.work}
+                    {this.state.add}
+                    {this.state.commit}
+                    {this.state.checkout}
+                    {this.state.pull}
+                    {this.state.merge}
+                    {this.state.diff}
+                    {this.state.push}
                 </ReactCSSTransitionGroup>
             </div>
 
