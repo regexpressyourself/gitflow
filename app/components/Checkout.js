@@ -31,7 +31,7 @@ class Checkout extends React.Component {
         this.setState({
             isActive: false
         });
-        this.state.onNextStep("work");
+        this.state.onNextStep("pull");
 
     }
     render() {
@@ -51,16 +51,26 @@ class Checkout extends React.Component {
                     </TermsContainer>
                 </FlowHeader>
                 <TermsDescription>
-                    Remember back on the "Branch" step, we had to checkout our new branch. Now that we have some changes
+                    Earlier, we checked out a new branch for our work. Now that we've done some work, it's time to get them into the master branch. There are a few steps here, but following them will help you avoid some of the typical headaches.
+                    <br/><br/>
+                    Fortunately, this step is easy: checkout master.
+                    <br/><br/>
+                    First, make sure you have all your changes commited.
+                    <br/><br/>
+                    Next, checkout master just like we checked out our development branch: <kbd>git checkout master</kbd>.
+                    <br/><br/>
+                    All done!
+                    <br/><br/>
+                    You'll notice all the changes you made earlier have dissapeared. That's ok. The master just branch doesn't know about them yet. Let's fix that.
                 </TermsDescription>
 
                 <NextStepContainer isActive={this.state.isActive}>
                     <OneStep>
                         <div style={NextStepBox}>
                             <p>
-                                Once you've created a new branch, you can start working just like normal.
+                                Before you combine your changes, you should check to see if master has changed since you last updated it. This next step is not strictly necessary every time, but it is easy to do and saves a lot of trouble. I recommend getting in the habit of doing it regardless.
                             </p>
-                            <button onClick={this.onNextStep} className="btn btn-lg btn-black">Working With Git</button>
+                            <button onClick={this.onNextStep} className="btn btn-lg btn-black">Pulling Changes</button>
                         </div>
 
                     </OneStep>

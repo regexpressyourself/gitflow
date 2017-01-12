@@ -27,11 +27,11 @@ class Merge extends React.Component {
             isActive: this.props.isActive
         });
     }
-    onNextStep() {
+    onNextStep(nextComponent) {
         this.setState({
             isActive: false
         });
-        this.state.onNextStep("commit");
+        this.state.onNextStep(nextComponent);
     }
     render() {
         return (
@@ -41,36 +41,40 @@ class Merge extends React.Component {
                         <StepTitle>Git Merge</StepTitle>
                     </TitleContainer>
                     <TermsContainer>
-                        <Terms isCode="true" term="git add <filename>" >
-                            Adds the changes in a given file to git
+                        <Terms term="Merge">
+                            Combine two branches.
                         </Terms>
-                        <Terms term="Stage">
-                            Git lingo for "save." More or less synonymous with "add."
+                        <Terms isCode="true" term="git merge <from_branch> <to_branch>" >
+                            Merges changes from <kbd>{"<from_branch>"}</kbd> into <kbd>{"<to_branch>"}</kbd>
                         </Terms>
                     </TermsContainer>
                 </FlowHeader>
                 <TermsDescription>
-                    After you've made changes, you will want to save them. Saving in git is a two step process: "staging" and "commiting". Don't worry about commiting for now, we will first talk about staging here.
-                    <br/> <br/>
-                    In git lingo, "staging" or "adding" files sets them up (or "stages them") to be saved. To stage a given file, you will use the command <kbd>git add filename</kbd>, where <kbd>filename</kbd> is the name of the file you want to save.
-                    <br/> <br/>
-                    You can add multiple files at once by stringing them together, e.g. <kbd>git add file1 file2 file3</kbd>.
-                    <br/> <br/>
-                    Alternatively, you can add all the current changes (all the changes listed under <kbd>git status</kbd>) by replacing the filename with a period:
-                    <br/>
-                    <kbd>git add .</kbd>
+                    You can combine changes from one branch into another by merging. Merging can result in errors if git doesn't know what change to add where, but typically works well when the team is using git in the same way.
+                    <br/><br/>
+                    To merge our branch into master, we run <kbd>git merge {"<our_branch>"} master</kbd>, where {"<our_branch>"} is the name of your development branch. (If you forgot the name of your branch, run <kbd>git branch</kbd> to see all the branches).
+                    <br/><br/>
+                                Did it work? If yes- awesome! Move onto Git Push.
+                    <br/><br/>
+                                If you got an error complaining about a conflict, don't worry! We'll fix it. Let's start debugging by using Git Diff.
                 </TermsDescription>
 
-                <NextStepContainer isActive={this.state.isActive}>
-                    <OneStep>
-                        <div style={NextStepBox}>
+                <NextStepContainer isActive={true}>
+                    <TwoStep>
+                        <div style={NextStepBox} className='float-right'>
                             <p>
-                                Once your files are staged, you can move on to commiting them.
+                                It Worked!
                             </p>
-                            <button onClick={this.onNextStep} className="btn btn-lg btn-black">Commiting Your Changes</button>
+                            <button onClick={() => this.onNextStep("push")} className="btn btn-lg btn-black">Git Push</button>
                         </div>
 
-                    </OneStep>
+                        <div style={NextStepBox} className="float-left">
+                            <p>
+                                I got an error about a conflict...
+                            </p>
+                            <button onClick={() => this.onNextStep("diff")} className="btn btn-lg btn-black">Git Diff</button>
+                        </div>
+                    </TwoStep>
                 </NextStepContainer>
             </div>
         )
