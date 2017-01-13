@@ -48,7 +48,7 @@ class Init extends React.Component {
                     </TermsContainer>
                 </FlowHeader>
                 <TermsDescription>
-                    You can bootstrap a new repository by using the <kbd>git init</kbd> command at the top folder of your project. This will create a .git folder for you, which will store the different versions of your files in git's own way. Running <kbd>git init</kbd> is all that's needed to start using git.
+                    You can bootstrap a new repository by using the command: <kbd className="is-command">git init</kbd> at the top folder of your project. This will create a .git folder for you, which will store the different versions of your files in git's own way. Running <kbd>git init</kbd> is all that's needed to start using git.
                 </TermsDescription>
 
                 <NextStepContainer isActive={this.state.isActive}>

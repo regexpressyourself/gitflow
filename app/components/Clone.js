@@ -47,7 +47,7 @@ class Clone extends React.Component {
                     </TermsContainer>
                 </FlowHeader>
                 <TermsDescription>
-                    <b>Cloning</b> a repository allows you to start working on an existing project that already has git enabled. Cloning simply creates a sopy of the repository on your computer. You can clone a repository by running <kbd>git clone your_repository</kbd>, where <kbd>your_repository</kbd> is the address of the git repository. Most often, you will clone from a web host such as GitHub.
+                    <b>Cloning</b> a repository allows you to start working on an existing project that already has git enabled. Cloning simply creates a sopy of the repository on your computer. You can clone a repository by running <kbd className="is-command">git clone {"<"}your_repository{">"}</kbd><kbd>{"<"}your_repository{">"}</kbd> is the address of the git repository. Most often, you will clone from a web host such as GitHub.
                 </TermsDescription>
 
                 <NextStepContainer isActive={this.state.isActive}>

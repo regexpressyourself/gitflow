@@ -49,9 +49,9 @@ class Commit extends React.Component {
                 <TermsDescription>
                     Once you've staged some changes, it's time for the second step in saving: commiting. Commiting is like taking a snap shot of your project and saving it. Every commit has two things: what was changed, and a message describing what was changed.
                     <br/><br/>
-                    Running <kbd>git commit</kbd> will prompt you to write a commit message briefly detailing what changes you made.
+                    Running: <kbd className="is-command">git commit</kbd> will prompt you to write a commit message briefly detailing what changes you made.
                     <br/><br/>
-                    You can commit and write your message all at once by running <kbd>git commit -m "Your message here"</kbd>.
+                    You can commit and write your message all at once by running: <kbd className="is-command">git commit -m "Your message here"</kbd>.
                     <br/><br/>
                     By default, your commit will contain all the changes you had staged at the time of commiting. Generally, the more often you commit the better. Try to make a habit of commiting your changes every time you reach a breaking point. It makes going back to find bugs a lot easier.
                 </TermsDescription>

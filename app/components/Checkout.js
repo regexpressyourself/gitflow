@@ -42,9 +42,6 @@ class Checkout extends React.Component {
                         <StepTitle>Git Checkout</StepTitle>
                     </TitleContainer>
                     <TermsContainer>
-                        <Terms term="Branch" >
-                            A working copy of a repository, isolated from the other working copies
-                        </Terms>
                         <Terms isCode="true" term="git branch <branch_name>" >
                             Creates a new branch
                         </Terms>
@@ -57,8 +54,7 @@ class Checkout extends React.Component {
                     <br/><br/>
                     First, make sure you have all your changes commited.
                     <br/><br/>
-                    Next, checkout master just like we checked out our development branch: <kbd>git checkout master</kbd>.
-                    <br/><br/>
+                    Next, checkout master just like we checked out our development branch: <kbd className="is-command">git checkout master</kbd>
                     All done!
                     <br/><br/>
                     You'll notice all the changes you made earlier have dissapeared. That's ok. The master just branch doesn't know about them yet. Let's fix that.

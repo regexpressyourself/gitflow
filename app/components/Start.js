@@ -41,11 +41,6 @@ class Start extends React.Component {
                     <TitleContainer>
                         <StepTitle>Getting Started</StepTitle>
                     </TitleContainer>
-                    <TermsContainer>
-                        <Terms term='Repository' >
-                            Another word for "project" in git lingo
-                        </Terms>
-                    </TermsContainer>
                 </FlowHeader>
                 <TermsDescription>
                     Git keeps your projects in what's called a <i><b>repository</b></i>, or repo for short. Your repository is all of the files in a given project folder. Where to start with your repository depends on what your project looks like right now.

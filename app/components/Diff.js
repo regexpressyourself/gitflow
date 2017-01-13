@@ -51,8 +51,7 @@ class Diff extends React.Component {
                     <br/><br/>
                     When the merge failed, at least one file should have been listed as "in conflict". We will refer to this file as <kbd>{"<filename>"}</kbd> here.
                     <br/><br/>
-                    The easiest way to debug a conflicted file from the command line is to run <kbd>git diff {"<your_branch>"} master {"<filename>"}</kbd>.
-                    <br/><br/>
+                    The easiest way to debug a conflicted file from the command line is to run <kbd className="is-command">git diff {"<your_branch>"} master {"<filename>"}</kbd>
                     The diff command show the differences, and will make finding the conflicts easier.
                     <br/><br/>
                     If possible, I recommend using some kind of GUI or TUI to fix conflicts, as it can make things a lot easier.

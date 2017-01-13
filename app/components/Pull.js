@@ -51,7 +51,7 @@ class Pull extends React.Component {
                     <br/> <br/>
                     Pulling changes will update your branch from any changes from a remote (cloud hosted) version of the branch. It's important to do before combining our changes, as it will save you overwriting any changes that might have been made by someone else.
                     <br/> <br/>
-                    Pulling is very easy when everyone has followed this workflow, simply run <kbd>git pull</kbd>. The changes will be downloaded automatically.
+                    Pulling is very easy when everyone has followed this workflow, simply run <kbd className="is-command">git pull</kbd> The changes will be downloaded automatically.
                     <br/> <br/>
                     If you get a message saying there is no remote repository, you will just need to set up your repository with one on Github. The instructions are on Github's site. Note: this is not necessary. Git will work just fine without a remote repository.
                 </TermsDescription>

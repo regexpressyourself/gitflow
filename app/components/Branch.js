@@ -10,7 +10,7 @@ import TitleContainer    from './TitleContainer';
 import TermsDescription  from './TermsDescription';
 import FlowHeader        from './FlowHeader';
 import NextStepContainer from './NextStepContainer';
-import { NextStepBox } from '../styles';
+import { NextStepBox, CommandsContainer } from '../styles';
 
 class Branch extends React.Component {
     constructor(props) {
@@ -42,13 +42,10 @@ class Branch extends React.Component {
                         <StepTitle>Git Branch</StepTitle>
                     </TitleContainer>
                     <TermsContainer>
-                        <Terms term="Branch" >
-                            A working copy of a repository, isolated from the other working copies
-                        </Terms>
-                        <Terms isCode="true" term="git branch <branch_name>" >
+                        <Terms isCode="true" term="git branch <new_branch>" >
                             Creates a new branch
                         </Terms>
-                        <Terms isCode="true" term="git checkout <branch_name>" >
+                        <Terms isCode="true" term="git checkout <new_branch>" >
                             Start working on the new branch
                         </Terms>
                     </TermsContainer>
@@ -58,9 +55,9 @@ class Branch extends React.Component {
                     <br/><br/>
                     Every git repository starts with one branch: <kbd>master</kbd>. This is the main version of your project, and is typically shared amonst the team. From master, you can create as many branches as you want. I recommend always creating a branch for your work, keeping master as a clean slate. We will talk more about why later.
                     <br/><br/>
-                    You can create a branch by running: <kbd>git branch new_branch</kbd> where <kbd>new_branch</kbd> is the name of your branch (it can even be "new_branch" if you're not feeling very creative).
+                    You can create a branch by running: <kbd className="is-command">git branch {"<"}new_branch{">"}</kbd> <kbd>{"<"}new_branch{">"}</kbd> is the name of your branch (it can even be "new_branch" if you're not feeling very creative).
                     <br/><br/>
-                    Finally, you'll want to checkout your new branch. You can do this by running <kbd>git checkout new_branch</kbd>. 
+                    Finally, you'll want to checkout your new branch. You can do this by running <kbd className="is-command">git checkout {"<"}new_branch{">"}</kbd>
                 </TermsDescription>
 
                 <NextStepContainer isActive={this.state.isActive}>

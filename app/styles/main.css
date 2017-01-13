@@ -22,6 +22,14 @@ h4 {
 kbd {
     white-space: nowrap;
 }
+kbd.is-command {
+    display: block;
+    white-space: nowrap;
+    padding: 5px;
+    box-shadow: 0 3px 8px 0 rgba(0,0,0,0.4), 0 0 0 1px rgba(0,0,0,0.12);
+    width: 90%;
+    margin: 15px auto;
+}
 
 .container {
     max-width: 70%;

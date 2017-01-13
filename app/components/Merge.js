@@ -41,9 +41,6 @@ class Merge extends React.Component {
                         <StepTitle>Git Merge</StepTitle>
                     </TitleContainer>
                     <TermsContainer>
-                        <Terms term="Merge">
-                            Combine two branches.
-                        </Terms>
                         <Terms isCode="true" term="git merge <from_branch> <to_branch>" >
                             Merges changes from <kbd>{"<from_branch>"}</kbd> into <kbd>{"<to_branch>"}</kbd>
                         </Terms>
@@ -52,14 +49,14 @@ class Merge extends React.Component {
                 <TermsDescription>
                     You can combine changes from one branch into another by merging. Merging can result in errors if git doesn't know what change to add where, but typically works well when the team is using git in the same way.
                     <br/><br/>
-                    To merge our branch into master, we run <kbd>git merge {"<our_branch>"} master</kbd>, where {"<our_branch>"} is the name of your development branch. (If you forgot the name of your branch, run <kbd>git branch</kbd> to see all the branches).
+                    To merge our branch into master, we run <kbd className="is-command">git merge {"<our_branch>"} master</kbd> where <kbd>{"<our_branch>"}</kbd> is the name of your development branch. (If you forgot the name of your branch, run <kbd className="is-command">git branch</kbd> to see all the branches).
                     <br/><br/>
                                 Did it work? If yes- awesome! Move onto Git Push.
                     <br/><br/>
                                 If you got an error complaining about a conflict, don't worry! We'll fix it. Let's start debugging by using Git Diff.
                 </TermsDescription>
 
-                <NextStepContainer isActive={true}>
+                <NextStepContainer isActive={this.state.isActive}>
                     <TwoStep>
                         <div style={NextStepBox} className='float-right'>
                             <p>
