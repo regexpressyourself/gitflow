@@ -31,7 +31,7 @@ class Diff extends React.Component {
         this.setState({
             isActive: false
         });
-        this.state.onNextStep("merge");
+        this.state.onNextStep("remerge");
     }
     render() {
         return (

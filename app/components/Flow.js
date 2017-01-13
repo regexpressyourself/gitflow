@@ -11,6 +11,7 @@ import Add      from './Add';
 import Commit   from './Commit';
 import Push     from './Push';
 import Checkout from './Checkout';
+import CheckoutMaster from './CheckoutMaster';
 import Pull     from './Pull';
 import Merge    from './Merge';
 import Diff     from './Diff';
@@ -51,6 +52,7 @@ class Flow extends React.Component {
 
     updateUrl(urlStepParameters) {
 
+        // TODO add check for dups
         hashHistory.push({
             pathname: '/flow/',
             search: '?steps=' + urlStepParameters
@@ -76,7 +78,12 @@ class Flow extends React.Component {
                     break;
                 case "diff":
                     this.setState({
-                        diff:  <Diff isActive={isLastStep} onNextStep={this.onNextStep.bind(this)}/>
+                        diff:  <Diff isActive={isLastStep} isViewed={isLastStep} onNextStep={this.onNextStep.bind(this)}/>
+                    });
+                    break;
+                case "remerge":
+                    this.setState({
+                        remerge:  <Merge isActive={isLastStep} reMerge={true} onNextStep={this.onNextStep.bind(this)}/>
                     });
                     break;
                 case "merge":
@@ -92,6 +99,11 @@ class Flow extends React.Component {
                 case "checkout":
                     this.setState({
                         checkout:  <Checkout isActive={isLastStep} onNextStep={this.onNextStep.bind(this)}/>
+                    });
+                    break;
+                case "checkoutmaster":
+                    this.setState({
+                        checkoutmaster:  <CheckoutMaster isActive={isLastStep} onNextStep={this.onNextStep.bind(this)}/>
                     });
                     break;
                 case "commit":
@@ -141,13 +153,15 @@ class Flow extends React.Component {
                     {this.state.init}
                     {this.state.clone}
                     {this.state.branch}
+                    {this.state.checkout}
                     {this.state.work}
                     {this.state.add}
                     {this.state.commit}
-                    {this.state.checkout}
+                    {this.state.checkoutmaster}
                     {this.state.pull}
                     {this.state.merge}
                     {this.state.diff}
+                    {this.state.remerge}
                     {this.state.push}
                 </ReactCSSTransitionGroup>
             </div>

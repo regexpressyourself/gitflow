@@ -17,21 +17,61 @@ class Merge extends React.Component {
         super(props);
         this.state = {
             isActive: false,
-            isViewed: true
+            isViewed: true,
+            reMerge: false
         }
         this.onNextStep = this.onNextStep.bind(this);
     }
     componentDidMount() {
         this.setState({
             onNextStep: this.props.onNextStep,
-            isActive: this.props.isActive
+            isActive: this.props.isActive,
         });
+        this.getNextStep(this.props.reMerge);
     }
     onNextStep(nextComponent) {
         this.setState({
             isActive: false
         });
         this.state.onNextStep(nextComponent);
+    }
+    getNextStep(isReMerge) {
+        if (isReMerge) {
+            this.setState({
+                nextStep: (
+                    <OneStep>
+                        <div style={NextStepBox}>
+                            <p>
+                                Once you've fixed your conflict, you can move on to push your changes back online
+                            </p>
+                            <button onClick={() => this.onNextStep("push")} className="btn btn-lg btn-black">Pushing Changes</button>
+                        </div>
+                    </OneStep>
+                )
+            });
+        }
+        else {
+            console.log("false");
+            this.setState({
+                nextStep: (
+                    <TwoStep>
+                        <div style={NextStepBox} className='float-right'>
+                            <p>
+                                It Worked!
+                            </p>
+                            <button onClick={() => this.onNextStep("push")} className="btn btn-lg btn-black">Git Push</button>
+                        </div>
+
+                        <div style={NextStepBox} className="float-left">
+                            <p>
+                                I got an error about a conflict...
+                            </p>
+                            <button onClick={() => this.onNextStep("diff")} className="btn btn-lg btn-black">Git Diff</button>
+                        </div>
+                    </TwoStep>
+                    )
+            })
+        }
     }
     render() {
         return (
@@ -57,21 +97,7 @@ class Merge extends React.Component {
                 </TermsDescription>
 
                 <NextStepContainer isActive={this.state.isActive}>
-                    <TwoStep>
-                        <div style={NextStepBox} className='float-right'>
-                            <p>
-                                It Worked!
-                            </p>
-                            <button onClick={() => this.onNextStep("push")} className="btn btn-lg btn-black">Git Push</button>
-                        </div>
-
-                        <div style={NextStepBox} className="float-left">
-                            <p>
-                                I got an error about a conflict...
-                            </p>
-                            <button onClick={() => this.onNextStep("diff")} className="btn btn-lg btn-black">Git Diff</button>
-                        </div>
-                    </TwoStep>
+                    {this.state.nextStep}
                 </NextStepContainer>
             </div>
         )

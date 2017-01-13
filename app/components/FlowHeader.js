@@ -13,23 +13,22 @@ class FlowHeader extends React.Component {
         }
     }
     componentDidMount() {
-        if (Array.isArray(this.props.children) &&
-            this.props.children.length >= 2) {
-            // Both a title and commadns were passed
-            this.setState({
-                title: this.props.children[0],
-                terms: this.props.children[1],
-                isViewed: this.props.isViewed
-            });
-        }
-        else if (this.props.children.type == TitleContainer) {
-            // No "Commands" section
-            this.setState({
-                title: this.props.children,
-                isViewed: this.props.isViewed
-            });
-        }
-
+            if (Array.isArray(this.props.children) &&
+                this.props.children.length >= 2) {
+                // Both a title and commadns were passed
+                this.setState({
+                    title: this.props.children[0],
+                    terms: this.props.children[1],
+                    isViewed: this.props.isViewed
+                });
+            }
+            else if (this.props.children.type == TitleContainer) {
+                // No "Commands" section
+                this.setState({
+                    title: this.props.children,
+                    isViewed: this.props.isViewed
+                });
+            }
     }
     render() {
         return (
