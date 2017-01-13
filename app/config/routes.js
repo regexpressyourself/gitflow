@@ -17,7 +17,6 @@ let routes = (
             <IndexRoute component={Home} />
             <Route path='/first' component={First}/>
             <Route path='/flow' component={Flow} />
-            <Route path='/flow/:steps' component={Flow} />
         </Route>
     </Router>
 )
