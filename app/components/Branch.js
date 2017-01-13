@@ -31,7 +31,7 @@ class Branch extends React.Component {
         this.setState({
             isActive: false
         });
-        this.state.onNextStep("work");
+        this.state.onNextStep("checkout");
 
     }
     render() {
@@ -45,9 +45,6 @@ class Branch extends React.Component {
                         <Terms isCode="true" term="git branch <new_branch>" >
                             Creates a new branch
                         </Terms>
-                        <Terms isCode="true" term="git checkout <new_branch>" >
-                            Start working on the new branch
-                        </Terms>
                     </TermsContainer>
                 </FlowHeader>
                 <TermsDescription>
@@ -56,17 +53,15 @@ class Branch extends React.Component {
                     Every git repository starts with one branch: <kbd>master</kbd>. This is the main version of your project, and is typically shared amonst the team. From master, you can create as many branches as you want. I recommend always creating a branch for your work, keeping master as a clean slate. We will talk more about why later.
                     <br/><br/>
                     You can create a branch by running: <kbd className="is-command">git branch {"<"}new_branch{">"}</kbd> <kbd>{"<"}new_branch{">"}</kbd> is the name of your branch (it can even be "new_branch" if you're not feeling very creative).
-                    <br/><br/>
-                    Finally, you'll want to checkout your new branch. You can do this by running <kbd className="is-command">git checkout {"<"}new_branch{">"}</kbd>
                 </TermsDescription>
 
                 <NextStepContainer isActive={this.state.isActive}>
                     <OneStep>
                         <div style={NextStepBox}>
                             <p>
-                                Once you've created a new branch, you can start working just like normal.
+                                Once you've created a new branch, we need to check it out to use it:
                             </p>
-                            <button onClick={this.onNextStep} className="btn btn-lg btn-black">Working With Git</button>
+                            <button onClick={this.onNextStep} className="btn btn-lg btn-black">Checkout a Branch</button>
                         </div>
 
                     </OneStep>
