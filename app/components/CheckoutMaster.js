@@ -12,7 +12,7 @@ import FlowHeader        from './FlowHeader';
 import NextStepContainer from './NextStepContainer';
 import { NextStepBox } from '../styles';
 
-class Add extends React.Component {
+class CheckoutMaster extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -31,44 +31,37 @@ class Add extends React.Component {
         this.setState({
             isActive: false
         });
-        this.state.onNextStep("commit");
+        this.state.onNextStep("pull");
+
     }
     render() {
         return (
             <div>
                 <FlowHeader isViewed={this.state.isViewed}>
                     <TitleContainer>
-                        <StepTitle>Git Add</StepTitle>
+                        <StepTitle>Checkout Master</StepTitle>
                     </TitleContainer>
                     <TermsContainer>
-                        <Terms isCode="true" term="git add <filename>" >
-                            Adds the changes in a given file to git
+                        <Terms isCode="true" term="git checkout master" >
+                            Switch back to the master branch
                         </Terms>
                     </TermsContainer>
                 </FlowHeader>
-
                 <TermsDescription>
-                    After you've made changes, you will want to save them. Saving in git is a two step process:
-                    <span className="left-margin">
-                        1. <kbd>Stage</kbd> changes to be saved
-                        <br/>
-                        2. <kbd>Commit</kbd>, or save those changes
-                    </span>
-
-                    We will discuss staging here.
+                    Earlier, we checked out a new branch for our work. Now that we've done some work and commited it, it's time to combine those changes into the master branch.
                     <br/><br/>
-                    To stage a given file, <kbd>{"<"}filename{">"}</kbd>, you will use the command <kbd className="is-command">git add {"<"}filename{">"}</kbd>
-                    You can also stage multiple files at once by stringing them together:
-                    <kbd className="is-command">git add file1 file2 file3</kbd>
-                    Alternatively, you can stage all the current changes by replacing the filename with a period:
-                    <kbd className="is-command">git add .</kbd>
+                    Combining changes can take a few steps, but following them can avoid major headaches.
+                    <br/><br/>
+                    First, we need to check out master.
+                    <kbd className="is-command">git checkout master</kbd>
+                    You'll notice all the changes you made earlier have dissapeared. That's ok. The master just branch doesn't know about them yet. Let's fix that.
                 </TermsDescription>
 
                 <NextStepContainer isActive={this.state.isActive}>
                     <OneStep>
                         <div style={NextStepBox} onClick={this.onNextStep} className="btn-black">
                             <h4>
-                                Commit my staged files
+                                Update master with the latest changes online
                             </h4>
                         </div>
 
@@ -79,4 +72,4 @@ class Add extends React.Component {
     }
 }
 
-export default Add;
+export default CheckoutMaster;

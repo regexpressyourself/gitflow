@@ -31,7 +31,7 @@ class Commit extends React.Component {
         this.setState({
             isActive: false
         });
-        this.state.onNextStep("checkout");
+        this.state.onNextStep("checkoutmaster");
     }
     render() {
         return (
@@ -42,28 +42,30 @@ class Commit extends React.Component {
                     </TitleContainer>
                     <TermsContainer>
                         <Terms isCode="true" term="git commit" >
-                            Creates a new commit containing all the changes you had staged.
+                            Commits staged changes and prompts for message
+                        </Terms>
+                        <Terms isCode="true" term='git commit -m "<message>"' >
+                            Commits staged changes and add the message: <kbd>{"<"}message{">"}</kbd>
                         </Terms>
                     </TermsContainer>
                 </FlowHeader>
                 <TermsDescription>
-                    Once you've staged some changes, it's time for the second step in saving: commiting. Commiting is like taking a snap shot of your project and saving it. Every commit has two things: what was changed, and a message describing what was changed.
+                    Once you've staged some changes to be saved, it's time for the second step in saving: commiting.
                     <br/><br/>
-                    Running <kbd>git commit</kbd> will prompt you to write a commit message briefly detailing what changes you made.
+                    Every commit is accompanied by a message describing the changes that were made. Generally, the more often you commit the better, as it allows commits to be more specific.
                     <br/><br/>
-                    You can commit and write your message all at once by running <kbd>git commit -m "Your message here"</kbd>.
-                    <br/><br/>
-                    By default, your commit will contain all the changes you had staged at the time of commiting. Generally, the more often you commit the better. Try to make a habit of commiting your changes every time you reach a breaking point. It makes going back to find bugs a lot easier.
+                    Commit your staged changes and add a message all at once by running:
+                    <kbd className="is-command">git commit -m "Your message here"</kbd>
+                    Alternatively, you can just commit and let git prompt you for a message in your default editor by skipping the message and running only:
+                    <kbd className="is-command">git commit</kbd>
                 </TermsDescription>
 
                 <NextStepContainer isActive={this.state.isActive}>
                     <OneStep>
-                        <div style={NextStepBox}>
-                            <p>
-                                Once you have some changes added and commited, it's time to go back to our trusty <kbd>master</kbd> branch.
-                                <br/><br/>
-                            </p>
-                            <button onClick={this.onNextStep} className="btn btn-lg btn-black">Checkout Master</button>
+                        <div style={NextStepBox} onClick={this.onNextStep} className="btn-black">
+                            <h4>
+                                Combine my changes into the master branch
+                            </h4>
                         </div>
 
                     </OneStep>

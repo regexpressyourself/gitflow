@@ -31,7 +31,7 @@ class Diff extends React.Component {
         this.setState({
             isActive: false
         });
-        this.state.onNextStep("merge");
+        this.state.onNextStep("remerge");
     }
     render() {
         return (
@@ -49,22 +49,18 @@ class Diff extends React.Component {
                 <TermsDescription>
                     So your merge didn't work. This usually means git just didn't know the best way to combine your changes. It's no need to fear.
                     <br/><br/>
-                    When the merge failed, at least one file should have been listed as "in conflict". We will refer to this file as <kbd>{"<filename>"}</kbd> here.
+                    When the merge failed, at least one file should have been listed as "in conflict". We will refer to this file as <kbd>{"<conflicted_file>"}</kbd> here.
                     <br/><br/>
-                    The easiest way to debug a conflicted file from the command line is to run <kbd>git diff {"<your_branch>"} master {"<filename>"}</kbd>.
-                    <br/><br/>
-                    The diff command show the differences, and will make finding the conflicts easier.
-                    <br/><br/>
-                    If possible, I recommend using some kind of GUI or TUI to fix conflicts, as it can make things a lot easier.
+                    The easiest way to debug a simple conflict is to look at the differences between the two versions of the file. You can do this by running: <kbd className="is-command">git diff {"<your_branch>"} master {"<conflict_file>"}</kbd>
+                    I recommend using some kind of GUI to fix non-trivial conflicts. A lot of IDEs offer one, or you're free to choose one from a third party. I won't be covering them here.
                 </TermsDescription>
 
                 <NextStepContainer isActive={this.state.isActive}>
                     <OneStep>
-                        <div style={NextStepBox}>
-                            <p>
-                                Once you fix your conflicts, you can go back to merging.
-                            </p>
-                            <button onClick={this.onNextStep} className="btn btn-lg btn-black">Merging Branches</button>
+                        <div style={NextStepBox} onClick={this.onNextStep} className="btn-black">
+                            <h4>
+                            I've fixed my conflicts. Get back to merging.
+                            </h4>
                         </div>
 
                     </OneStep>

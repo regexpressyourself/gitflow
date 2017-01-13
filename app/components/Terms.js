@@ -1,6 +1,7 @@
 import React     from 'react';
 import { Link }  from 'react-router';
 import PropTypes from 'react';
+import {CommandsContainer} from '../styles';
 
 
 class Terms extends React.Component {
@@ -11,23 +12,24 @@ class Terms extends React.Component {
         }
     }
     componentDidMount() {
-        if(this.props.isCode) {
-            this.setState({
-                term: <kbd>{this.props.term}</kbd>
-            })
-        }
-        else {
-            this.setState({
-                term: this.props.term
-            });
-        }
+        this.setState({
+            term: this.props.term
+        });
     }
     render(){
         // this.props.children holds the definition of a term
         return (
-            <p>
-                <b>{this.state.term}</b>: {this.props.children}
-            </p>
+
+            <div>
+                <p style={CommandsContainer}>
+                    <code>
+                        <b>$  {this.state.term}</b>
+                    </code>
+                </p>
+                <p>
+                    {this.props.children}
+                </p>
+            </div>
         )
     }
 }

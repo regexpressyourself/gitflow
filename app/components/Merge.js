@@ -17,21 +17,60 @@ class Merge extends React.Component {
         super(props);
         this.state = {
             isActive: false,
-            isViewed: true
+            isViewed: true,
+            reMerge: false
         }
         this.onNextStep = this.onNextStep.bind(this);
     }
     componentDidMount() {
         this.setState({
             onNextStep: this.props.onNextStep,
-            isActive: this.props.isActive
+            isActive: this.props.isActive,
         });
+        this.getNextStep(this.props.reMerge);
     }
     onNextStep(nextComponent) {
         this.setState({
             isActive: false
         });
         this.state.onNextStep(nextComponent);
+    }
+    getNextStep(isReMerge) {
+        if (isReMerge) {
+            this.setState({
+                nextStep: (
+                    <OneStep>
+                        <div style={NextStepBox} onClick={() => this.onNextStep("push")} className="btn-black">
+                            <h4>
+                                I've made a merge without errors. Upload my changes online.
+                            </h4>
+                        </div>
+                    </OneStep>
+                ),
+                descriptionSignOff: "If not, try looking into some merge tools. If you can't fix the conflicts, you may have to combine the changes manually, then try merging again"
+            });
+        }
+        else {
+            console.log("false");
+            this.setState({
+                nextStep: (
+                    <TwoStep>
+                        <div style={NextStepBox} className='float-right' onClick={() => this.onNextStep("push")} className="btn-black">
+                            <h4>
+                                It Worked! Upload my new changes online.
+                            </h4>
+                        </div>
+
+                        <div style={NextStepBox} className="float-left" onClick={() => this.onNextStep("diff")} className="btn-black">
+                            <h4>
+                                I got an error about a conflict...
+                            </h4>
+                        </div>
+                    </TwoStep>
+                ),
+                descriptionSignOff: "If you got an error complaining about a conflict, don't worry! Let's try to fix it."
+            })
+        }
     }
     render() {
         return (
@@ -41,40 +80,30 @@ class Merge extends React.Component {
                         <StepTitle>Git Merge</StepTitle>
                     </TitleContainer>
                     <TermsContainer>
-                        <Terms term="Merge">
-                            Combine two branches.
-                        </Terms>
                         <Terms isCode="true" term="git merge <from_branch> <to_branch>" >
                             Merges changes from <kbd>{"<from_branch>"}</kbd> into <kbd>{"<to_branch>"}</kbd>
                         </Terms>
                     </TermsContainer>
                 </FlowHeader>
                 <TermsDescription>
-                    You can combine changes from one branch into another by merging. Merging can result in errors if git doesn't know what change to add where, but typically works well when the team is using git in the same way.
+                    You can combine changes from one branch into another by merging.
                     <br/><br/>
-                    To merge our branch into master, we run <kbd>git merge {"<our_branch>"} master</kbd>, where {"<our_branch>"} is the name of your development branch. (If you forgot the name of your branch, run <kbd>git branch</kbd> to see all the branches).
+                    Merging can result in errors if git doesn't know what change to add where, but typically works well when the team is using git in the same way.
                     <br/><br/>
-                                Did it work? If yes- awesome! Move onto Git Push.
-                    <br/><br/>
-                                If you got an error complaining about a conflict, don't worry! We'll fix it. Let's start debugging by using Git Diff.
+                            If you forgot the name of your branch, you can see a list of branches by running:
+                            <kbd className="is-command">git branch</kbd>
+                    To merge <kbd>{"<your_branch>"}</kbd> into master, run:
+                        <kbd className="is-command">git merge {"<your_branch>"} master</kbd>
+
+                            Did it work?
+                            <br/><br/>
+                            If yes- awesome! Move on to upload your changes to the master branch back online.
+                            <br/><br/>
+                            {this.state.descriptionSignOff}
                 </TermsDescription>
 
-                <NextStepContainer isActive={true}>
-                    <TwoStep>
-                        <div style={NextStepBox} className='float-right'>
-                            <p>
-                                It Worked!
-                            </p>
-                            <button onClick={() => this.onNextStep("push")} className="btn btn-lg btn-black">Git Push</button>
-                        </div>
-
-                        <div style={NextStepBox} className="float-left">
-                            <p>
-                                I got an error about a conflict...
-                            </p>
-                            <button onClick={() => this.onNextStep("diff")} className="btn btn-lg btn-black">Git Diff</button>
-                        </div>
-                    </TwoStep>
+                <NextStepContainer isActive={this.state.isActive}>
+                    {this.state.nextStep}
                 </NextStepContainer>
             </div>
         )

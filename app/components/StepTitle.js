@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 class StepTitle extends React.Component {
     render() {
         return (
-                <h1>{this.props.children}</h1>
+                <h2>{this.props.children}</h2>
         )
     }
 }
