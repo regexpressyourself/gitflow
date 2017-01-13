@@ -48,10 +48,15 @@ let styles = {
     },
     TermsDescriptionStyles: {
         margin: '20px auto',
-        border: '1px solid black',
-        borderRadius: '10px',
         padding: '20px',
-        maxWidth: '100%'
+        maxWidth: '100%',
+        borderTop: '1px solid #333',
+        borderBottom: '1px solid #333'
+    },
+    CommandsContainer: {
+        padding: '5px',
+        boxShadow: "0 3px 8px 0 rgba(0,0,0,0.4), 0 0 0 1px rgba(0,0,0,0.12)",
+        width: '100%'
     }
 
 }
