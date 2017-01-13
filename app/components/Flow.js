@@ -32,7 +32,7 @@ class Flow extends React.Component {
             this.setState({
                 steps: this.props.location.query.steps.split(" ")
             }, function() {
-                this.onNextStep("");
+                this.onNextStep();
             });
         }
     }

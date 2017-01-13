@@ -10,7 +10,7 @@ import TitleContainer    from './TitleContainer';
 import TermsDescription  from './TermsDescription';
 import FlowHeader        from './FlowHeader';
 import NextStepContainer from './NextStepContainer';
-import { NextStepBox } from '../styles';
+import { NextStepBox, TwoStepBox } from '../styles';
 
 class Merge extends React.Component {
     constructor(props) {
@@ -55,13 +55,13 @@ class Merge extends React.Component {
             this.setState({
                 nextStep: (
                     <TwoStep>
-                        <div style={NextStepBox} className='float-right' onClick={() => this.onNextStep("push")} className="btn-black">
+                        <div style={TwoStepBox} className='float-right' onClick={() => this.onNextStep("push")} className="btn-black">
                             <h4>
                                 It Worked! Upload my new changes online.
                             </h4>
                         </div>
 
-                        <div style={NextStepBox} className="float-left" onClick={() => this.onNextStep("diff")} className="btn-black">
+                        <div style={TwoStepBox} className="float-left" onClick={() => this.onNextStep("diff")} className="btn-black">
                             <h4>
                                 I got an error about a conflict...
                             </h4>
