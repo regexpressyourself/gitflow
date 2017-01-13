@@ -30,7 +30,7 @@ class Push extends React.Component {
     }
     onNextStep() {
         this.setState({
-            isActive: false
+            isActive: true
         });
         this.state.onNextStep("complete");
     }
@@ -38,14 +38,10 @@ class Push extends React.Component {
         return (
             <div>
                 <FlowHeader isViewed={this.state.isViewed}>
-                    <TitleContainer>
-                        <StepTitle>Git Push</StepTitle>
-                    </TitleContainer>
-                    <TermsContainer>
-                        <Terms isCode="true" term="git push" >
-                            Upload your changes to a remote repo on something like Github
-                        </Terms>
-                    </TermsContainer>
+                    Git Push
+                    <Terms isCode="true" term="git push" >
+                        Upload your changes to a remote repo on something like Github
+                    </Terms>
                 </FlowHeader>
                 <TermsDescription>
                     <i> Note: If you haven't set up a remote repository yet, you should do that before pushing. See GitHub's instructions for that <a href="https://help.github.com/articles/adding-a-remote/">on their site here</a></i>
@@ -55,15 +51,9 @@ class Push extends React.Component {
                     And that's it! You did it! If you follow this workflow you should be able to work with git without the headache.
                 </TermsDescription>
 
-                <NextStepContainer isActive={this.state.isActive}>
-                    <OneStep>
-                        <div style={NextStepBox} onClick={this.onNextStep} className="btn-black">
-                            <h4>
-                                Go back to the beginning of the workflow.
-                            </h4>
-                        </div>
-
-                    </OneStep>
+                <NextStepContainer isActive={this.state.isActive}
+                                   clickFunction={this.onNextStep.bind(this)}>
+                            Go back to the beginning of the workflow.
                 </NextStepContainer>
             </div>
         )

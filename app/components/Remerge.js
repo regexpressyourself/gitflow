@@ -56,28 +56,11 @@ class Merge extends React.Component {
                             <br/><br/>
                             If yes- awesome! Move on to upload your changes to the master branch back online.
                             <br/><br/>
-                            If you got an error complaining about a conflict, don't worry! Let's try to fix it.
+                            If not, try looking into some merge tools. If you can't fix the conflicts, you may have to combine the changes manually, then try merging again.
                 </TermsDescription>
-
-                <NextStepContainer isTwoStep={true} isActive={this.state.isActive}>
-                    <div style={TwoStepBox}
-                         className='float-right'
-                         onClick={() => this.onNextStep("push")}
-                         className="btn-black">
-                        <h4>
-                            It Worked! Upload my new changes online.
-                        </h4>
-                    </div>
-
-                    <div style={TwoStepBox}
-                         className="float-left"
-                         onClick={() => this.onNextStep("diff")}
-                         className="btn-black">
-                        <h4>
-                            I got an error about a conflict...
-                        </h4>
-                    </div>
-
+                <NextStepContainer isActive={this.state.isActive}
+                                   clickFunction={this.onNextStep.bind(this)}>
+                            I've made a merge without errors. Upload my changes online.
                 </NextStepContainer>
             </div>
         )

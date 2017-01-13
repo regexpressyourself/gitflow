@@ -43,8 +43,17 @@ let styles = {
         padding: '10px',
         borderRadius: '10px',
         width: '350px',
+        maxWidth: '60vw',
         margin: '0 auto',
         textAlign: 'center'
+    },
+    TwoStepBox: {
+        padding: '10px',
+        borderRadius: '10px',
+        width: '350px',
+        margin: '0 auto',
+        textAlign: 'center',
+        maxWidth: '35vw'
     },
     TermsDescriptionStyles: {
         margin: '20px auto',

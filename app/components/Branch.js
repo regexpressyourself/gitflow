@@ -38,14 +38,10 @@ class Branch extends React.Component {
         return (
             <div>
                 <FlowHeader isViewed={this.state.isViewed}>
-                    <TitleContainer>
-                        <StepTitle>Git Branch</StepTitle>
-                    </TitleContainer>
-                    <TermsContainer>
-                        <Terms isCode="true" term="git branch <new_branch>" >
-                            Creates a new branch
-                        </Terms>
-                    </TermsContainer>
+                    Git Branch
+                    <Terms isCode="true" term="git branch <new_branch>" >
+                        Creates a new branch
+                    </Terms>
                 </FlowHeader>
                 <TermsDescription>
                     Branching can be tough to understand, but is really what git was made to do best. With git, you can have different versions of your project existing simultaneously by branching. Branches can be used to borrow changes, fast forward, rewind, etc. In our example, we will make a branch for our independent work, and discuss best practices to combine that work with our teammates'.
@@ -55,15 +51,9 @@ class Branch extends React.Component {
                     You can create a branch by running: <kbd className="is-command">git branch {"<"}new_branch{">"}</kbd> <kbd>{"<"}new_branch{">"}</kbd> is the name of your branch (it can even be "new_branch" if you're not feeling very creative).
                 </TermsDescription>
 
-                <NextStepContainer isActive={this.state.isActive}>
-                    <OneStep>
-                        <div style={NextStepBox} onClick={this.onNextStep} className="btn-black">
-                            <h4>
-                                Checkout and start using your my branch
-                            </h4>
-                        </div>
-
-                    </OneStep>
+                <NextStepContainer isActive={this.state.isActive}
+                                   clickFunction={this.onNextStep.bind(this)}>
+                            Checkout and start using your my branch
                 </NextStepContainer>
             </div>
         )

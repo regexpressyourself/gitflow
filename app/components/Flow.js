@@ -14,6 +14,7 @@ import Checkout from './Checkout';
 import CheckoutMaster from './CheckoutMaster';
 import Pull     from './Pull';
 import Merge    from './Merge';
+import Remerge    from './Remerge';
 import Diff     from './Diff';
 
 class Flow extends React.Component {
@@ -32,7 +33,7 @@ class Flow extends React.Component {
             this.setState({
                 steps: this.props.location.query.steps.split(" ")
             }, function() {
-                this.onNextStep("");
+                this.onNextStep();
             });
         }
     }
@@ -83,7 +84,7 @@ class Flow extends React.Component {
                     break;
                 case "remerge":
                     this.setState({
-                        remerge:  <Merge isActive={isLastStep} reMerge={true} onNextStep={this.onNextStep.bind(this)}/>
+                        remerge:  <Remerge isActive={isLastStep}  onNextStep={this.onNextStep.bind(this)}/>
                     });
                     break;
                 case "merge":

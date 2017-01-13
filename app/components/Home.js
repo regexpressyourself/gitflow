@@ -6,16 +6,16 @@ class Home extends React.Component {
         return (
             <div>
                 <h1>Git Flow</h1>
-                <p className="lead"><i>Learn git without the techno babble</i></p>
+                <p className="lead"><i>Learn git step by step</i></p>
                 <br/>
                 <p>
-            This guide is a step-by-step of just one type of workflow in git. It is by no means an exhaustive illustration, but it should at least get you started on the right track.
+                    Git Flow is and interactive flow chart that walks you through the steps needed in order to use git properly.
                 </p>
-                    <br/>
                 <p>
-                    I firmly believe the best way to learn anything, especially git, is through practice. With this guide, you can hopefully learn enough to get to a point where you can practice with confidence.
+                    It is by no means an exhaustive illustration, but it should at least get you started on the right track.
                 </p>
-                    <br/>
+                <br/>
+                <br/>
                 <Link to="/first">
                     <button type="button" className="btn btn-lg btn-black">Get Started</button>
                 </Link>

@@ -1,6 +1,7 @@
 import React          from 'react';
 import { Link }       from 'react-router';
 import {OneStepLine } from '../styles';
+import { NextStepBox } from '../styles';
 
 class OneStep extends React.Component {
     constructor(props) {
@@ -28,8 +29,13 @@ class OneStep extends React.Component {
                 <div style={OneStepLine}>
                 </div>
                 <div className="col-xs-12">
-                    {this.props.children}
-
+                    <div style={NextStepBox}
+                         onClick={this.props.clickFunction}
+                         className="btn-black">
+                        <h4>
+                            {this.props.children}
+                        </h4>
+                    </div>
                 </div>
             </div>
         )
