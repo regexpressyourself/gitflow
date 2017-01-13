@@ -42,23 +42,16 @@ class Push extends React.Component {
                     </TitleContainer>
                     <TermsContainer>
                         <Terms isCode="true" term="git push" >
-                            Adds the changes in a given file to git
-                        </Terms>
-                        <Terms term="Stage">
-                            Git lingo for "save." More or less synonymous with "add."
+                            Upload your changes to a remote repo on something like Github
                         </Terms>
                     </TermsContainer>
                 </FlowHeader>
                 <TermsDescription>
-                    After you've made changes, you will want to save them. Saving in git is a two step process: "staging" and "commiting". Don't worry about commiting for now, we will first talk about staging here.
-                    <br/> <br/>
-                    In git lingo, "staging" or "adding" files sets them up (or "stages them") to be saved. To stage a given file, you will use the command <kbd>git add filename</kbd>, where <kbd>filename</kbd> is the name of the file you want to save.
-                    <br/> <br/>
-                    You can add multiple files at once by stringing them together, e.g. <kbd>git add file1 file2 file3</kbd>.
-                    <br/> <br/>
-                    Alternatively, you can add all the current changes (all the changes listed under <kbd>git status</kbd>) by replacing the filename with a period:
-                    <br/>
-                    <kbd>git add .</kbd>
+                    <i> Note: If you haven't set up a remote repository yet, you should do that before pushing. See GitHub's instructions for that <a href="https://help.github.com/articles/adding-a-remote/">on their site here</a></i>
+                    <br/><br/>
+                    Almost done! The last step is to upload your changes back online. To do this, we will do what's called a <kbd>push</kbd>. To push your changes, run:
+                    <kbd className="is-command">git push</kbd>
+                    And that's it! Scroll back up to <a href="#branch"></a>
                 </TermsDescription>
 
                 <NextStepContainer isActive={this.state.isActive}>

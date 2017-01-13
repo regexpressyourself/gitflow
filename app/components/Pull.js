@@ -47,6 +47,8 @@ class Pull extends React.Component {
                     </TermsContainer>
                 </FlowHeader>
                 <TermsDescription>
+                    <i> Note: If you haven't set up a remote repository yet, this step likely won't apply to you.</i>
+                    <br/><br/>
                     Before we combine our changes from our branch into master, we should make sure we have the most current version of master. This is not the only workable way to use git, but it has saved me the most headache. 
                     <br/> <br/>
                     Pulling changes will update your branch from any changes from a remote (cloud hosted) version of the branch. It's important to do before combining our changes, as it will save you overwriting any changes that might have been made by someone else.
