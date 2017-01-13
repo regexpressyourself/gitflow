@@ -31,7 +31,7 @@ class Commit extends React.Component {
         this.setState({
             isActive: false
         });
-        this.state.onNextStep("checkout");
+        this.state.onNextStep("checkoutmaster");
     }
     render() {
         return (
