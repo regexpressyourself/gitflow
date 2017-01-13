@@ -20,7 +20,7 @@ class First extends React.Component {
                 <p>
                     Feel free to <Link to='/flow'>skip this section</Link>.
                 </p>
-                <div onClick={this.goToFlowchart} className="btn-black btn-first">
+                <div onClick={this.goToFlowchart} style={NextStepBox} className="btn-black btn-first">
                     <h3>
                         Skip this and get to gitting
                     </h3>
@@ -37,7 +37,7 @@ class First extends React.Component {
                     If you're using a GUI instead, you should still be able to follow the steps, but the commands won't apply to you.
                 </p>
                 <h2>Enough Talk</h2>
-                <div onClick={this.goToFlowchart} className="btn-black btn-first">
+                <div onClick={this.goToFlowchart} style={NextStepBox} className="btn-black btn-first">
                     <h3>
                         Get to gitting
                     </h3>
