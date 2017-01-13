@@ -37,15 +37,11 @@ class Init extends React.Component {
     render() {
         return (
             <div>
-                <FlowHeader isViewed={this.state.isViewed}>
-                    <TitleContainer>
-                        <StepTitle>Git Init</StepTitle>
-                    </TitleContainer>
-                    <TermsContainer>
-                        <Terms isCode="true" term="git init" >
-                            Creates .git folder and enables git for your project
-                        </Terms>
-                    </TermsContainer>
+                <FlowHeader>
+                    Git Init
+                    <Terms isCode="true" term="git init" >
+                        Creates .git folder and enables git for your project
+                    </Terms>
                 </FlowHeader>
                 <TermsDescription>
                     You can bootstrap a new repository by using the command: <kbd className="is-command">git init</kbd> at the top folder of your project. This will create a .git folder for you, which will store the different versions of your files in git's own way. Running <kbd>git init</kbd> is all that's needed to start using git.

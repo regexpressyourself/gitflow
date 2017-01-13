@@ -38,14 +38,10 @@ class CheckoutMaster extends React.Component {
         return (
             <div>
                 <FlowHeader isViewed={this.state.isViewed}>
-                    <TitleContainer>
-                        <StepTitle>Checkout Master</StepTitle>
-                    </TitleContainer>
-                    <TermsContainer>
-                        <Terms isCode="true" term="git checkout master" >
-                            Switch back to the master branch
-                        </Terms>
-                    </TermsContainer>
+                    Checkout Master
+                    <Terms isCode="true" term="git checkout master" >
+                        Switch back to the master branch
+                    </Terms>
                 </FlowHeader>
                 <TermsDescription>
                     Earlier, we checked out a new branch for our work. Now that we've done some work and commited it, it's time to combine those changes into the master branch.

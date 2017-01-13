@@ -37,14 +37,10 @@ class Add extends React.Component {
         return (
             <div>
                 <FlowHeader isViewed={this.state.isViewed}>
-                    <TitleContainer>
-                        <StepTitle>Git Add</StepTitle>
-                    </TitleContainer>
-                    <TermsContainer>
-                        <Terms isCode="true" term="git add <filename>" >
-                            Adds the changes in a given file to git
-                        </Terms>
-                    </TermsContainer>
+                    Git Add
+                    <Terms isCode="true" term="git add <filename>" >
+                        Adds the changes in a given file to git
+                    </Terms>
                 </FlowHeader>
 
                 <TermsDescription>

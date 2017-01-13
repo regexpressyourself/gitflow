@@ -37,17 +37,13 @@ class Commit extends React.Component {
         return (
             <div>
                 <FlowHeader isViewed={this.state.isViewed}>
-                    <TitleContainer>
-                        <StepTitle>Git Commit</StepTitle>
-                    </TitleContainer>
-                    <TermsContainer>
-                        <Terms isCode="true" term="git commit" >
-                            Commits staged changes and prompts for message
-                        </Terms>
-                        <Terms isCode="true" term='git commit -m "<message>"' >
-                            Commits staged changes and add the message: <kbd>{"<"}message{">"}</kbd>
-                        </Terms>
-                    </TermsContainer>
+                    Git Commit
+                    <Terms isCode="true" term="git commit" >
+                        Commits staged changes and prompts for message
+                    </Terms>
+                    <Terms isCode="true" term='git commit -m "<message>"' >
+                        Commits staged changes and add the message: <kbd>{"<"}message{">"}</kbd>
+                    </Terms>
                 </FlowHeader>
                 <TermsDescription>
                     Once you've staged some changes to be saved, it's time for the second step in saving: commiting.

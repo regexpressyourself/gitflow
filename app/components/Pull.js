@@ -37,14 +37,10 @@ class Pull extends React.Component {
         return (
             <div>
                 <FlowHeader isViewed={this.state.isViewed}>
-                    <TitleContainer>
-                        <StepTitle>Git Pull</StepTitle>
-                    </TitleContainer>
-                    <TermsContainer>
-                        <Terms isCode="true" term="git pull">
-                            Retrieve changes from an online source.
-                        </Terms>
-                    </TermsContainer>
+                    Git Pull
+                    <Terms isCode="true" term="git pull">
+                        Retrieve changes from an online source.
+                    </Terms>
                 </FlowHeader>
                 <TermsDescription>
                     <i> Note: If you haven't set up a remote repository yet, this step likely won't apply to you.</i>

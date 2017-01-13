@@ -38,9 +38,7 @@ class Start extends React.Component {
         return (
             <div>
                 <FlowHeader isViewed={this.state.isViewed}>
-                    <TitleContainer>
-                        <StepTitle>Getting Started</StepTitle>
-                    </TitleContainer>
+                    Getting Started
                 </FlowHeader>
                 <TermsDescription>
                     Git keeps your projects in what's called a <i><b>repository</b></i>, or repo for short. Your repository is all of the files in a given project folder. Where to start with your repository depends on what your project looks like right now.

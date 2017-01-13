@@ -10,12 +10,12 @@ class Home extends React.Component {
                 <br/>
                 <p>
                     Git Flow is and interactive flow chart that walks you through the steps needed in order to use git properly.
-                    </p>
-                    <p>
+                </p>
+                <p>
                     It is by no means an exhaustive illustration, but it should at least get you started on the right track.
                 </p>
-                    <br/>
-                    <br/>
+                <br/>
+                <br/>
                 <Link to="/first">
                     <button type="button" className="btn btn-lg btn-black">Get Started</button>
                 </Link>

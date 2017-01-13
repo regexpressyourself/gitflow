@@ -38,14 +38,10 @@ class Branch extends React.Component {
         return (
             <div id="checkout-section">
                 <FlowHeader isViewed={this.state.isViewed}>
-                    <TitleContainer>
-                        <StepTitle>Git Checkout</StepTitle>
-                    </TitleContainer>
-                    <TermsContainer>
-                        <Terms isCode="true" term="git checkout <new_branch>" >
-                            Start working on the new branch
-                        </Terms>
-                    </TermsContainer>
+                    Git Checkout
+                    <Terms isCode="true" term="git checkout <new_branch>" >
+                        Start working on the new branch
+                    </Terms>
                 </FlowHeader>
                 <TermsDescription>
                     Now that you've made a new branch, you'll want to switch to it, or in git lingo "check it out". You can do this by running <kbd className="is-command">git checkout {"<"}new_branch{">"}</kbd>

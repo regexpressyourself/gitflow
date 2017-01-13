@@ -37,14 +37,10 @@ class Work extends React.Component {
         return (
             <div>
                 <FlowHeader isViewed={this.state.isViewed}>
-                    <TitleContainer>
-                        <StepTitle>Working With Git</StepTitle>
-                    </TitleContainer>
-                    <TermsContainer>
-                        <Terms isCode="true" term='git status' >
-                            Check and see what git sees
+                    Working With Git
+                    <Terms isCode="true" term='git status' >
+                        Check and see what git sees
                         </Terms>
-                    </TermsContainer>
                 </FlowHeader>
                 <TermsDescription>
                     If you've made it this far, you're doing great. So far, you've created a new repository on your computer, and set it up to do some work. At this point, you can go about working just like normal - so get to it! Check back here once you're at a stopping point (or just create a new file if you're just doing a trial run).

@@ -37,14 +37,10 @@ class Diff extends React.Component {
         return (
             <div>
                 <FlowHeader isViewed={this.state.isViewed}>
-                    <TitleContainer>
-                        <StepTitle>Git Diff</StepTitle>
-                    </TitleContainer>
-                    <TermsContainer>
-                        <Terms isCode="true" term="git diff" >
-                            See changes between two branches, commits, etc
-                        </Terms>
-                    </TermsContainer>
+                    Git Diff
+                    <Terms isCode="true" term="git diff" >
+                        See changes between two branches, commits, etc
+                    </Terms>
                 </FlowHeader>
                 <TermsDescription>
                     So your merge didn't work. This usually means git just didn't know the best way to combine your changes. It's no need to fear.

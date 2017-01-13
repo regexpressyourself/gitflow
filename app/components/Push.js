@@ -38,14 +38,10 @@ class Push extends React.Component {
         return (
             <div>
                 <FlowHeader isViewed={this.state.isViewed}>
-                    <TitleContainer>
-                        <StepTitle>Git Push</StepTitle>
-                    </TitleContainer>
-                    <TermsContainer>
-                        <Terms isCode="true" term="git push" >
-                            Upload your changes to a remote repo on something like Github
-                        </Terms>
-                    </TermsContainer>
+                    Git Push
+                    <Terms isCode="true" term="git push" >
+                        Upload your changes to a remote repo on something like Github
+                    </Terms>
                 </FlowHeader>
                 <TermsDescription>
                     <i> Note: If you haven't set up a remote repository yet, you should do that before pushing. See GitHub's instructions for that <a href="https://help.github.com/articles/adding-a-remote/">on their site here</a></i>
