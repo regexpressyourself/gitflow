@@ -49,15 +49,9 @@ class Branch extends React.Component {
                     Think of each branch as an independent version of your project. The master branch is typically reserved to only accept changes from other branches. By making a new branch and working in it instead, we are sure not to introduce errors into the master branch.
                 </TermsDescription>
 
-                <NextStepContainer isActive={this.state.isActive}>
-                    <OneStep>
-                        <div style={NextStepBox} onClick={this.onNextStep} className="btn-black">
-                            <h4>
-                                Stop messing around with this git stuff and do some work
-                            </h4>
-                        </div>
-
-                    </OneStep>
+                <NextStepContainer isActive={this.state.isActive}
+                                   clickFunction={this.onNextStep.bind(this)}>
+                            Stop messing around with this git stuff and do some work
                 </NextStepContainer>
             </div>
         )

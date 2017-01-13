@@ -60,15 +60,9 @@ class Add extends React.Component {
                     <kbd className="is-command">git add .</kbd>
                 </TermsDescription>
 
-                <NextStepContainer isActive={this.state.isActive}>
-                    <OneStep>
-                        <div style={NextStepBox} onClick={this.onNextStep} className="btn-black">
-                            <h4>
-                                Commit my staged files
-                            </h4>
-                        </div>
-
-                    </OneStep>
+                <NextStepContainer isActive={this.state.isActive}
+                                   clickFunction={this.onNextStep.bind(this)}>
+                            Commit my staged files
                 </NextStepContainer>
             </div>
         )

@@ -52,15 +52,9 @@ class Work extends React.Component {
                     Now that we have some changes, let's save them in git.
                 </TermsDescription>
 
-                <NextStepContainer isActive={this.state.isActive}>
-                    <OneStep>
-                        <div style={NextStepBox} onClick={this.onNextStep} className="btn-black">
-                            <h4>
-                                Tell git to save what I've changed
-                            </h4>
-                        </div>
-
-                    </OneStep>
+                <NextStepContainer isActive={this.state.isActive}
+                                   clickFunction={this.onNextStep.bind(this)}>
+                            Tell git to save what I've changed
                 </NextStepContainer>
             </div>
         )

@@ -51,15 +51,9 @@ class Branch extends React.Component {
                     You can create a branch by running: <kbd className="is-command">git branch {"<"}new_branch{">"}</kbd> <kbd>{"<"}new_branch{">"}</kbd> is the name of your branch (it can even be "new_branch" if you're not feeling very creative).
                 </TermsDescription>
 
-                <NextStepContainer isActive={this.state.isActive}>
-                    <OneStep>
-                        <div style={NextStepBox} onClick={this.onNextStep} className="btn-black">
-                            <h4>
-                                Checkout and start using your my branch
-                            </h4>
-                        </div>
-
-                    </OneStep>
+                <NextStepContainer isActive={this.state.isActive}
+                                   clickFunction={this.onNextStep.bind(this)}>
+                            Checkout and start using your my branch
                 </NextStepContainer>
             </div>
         )

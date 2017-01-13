@@ -51,15 +51,9 @@ class Diff extends React.Component {
                     I recommend using some kind of GUI to fix non-trivial conflicts. A lot of IDEs offer one, or you're free to choose one from a third party. I won't be covering them here.
                 </TermsDescription>
 
-                <NextStepContainer isActive={this.state.isActive}>
-                    <OneStep>
-                        <div style={NextStepBox} onClick={this.onNextStep} className="btn-black">
-                            <h4>
+                <NextStepContainer isActive={this.state.isActive}
+                                   clickFunction={this.onNextStep.bind(this)}>
                             I've fixed my conflicts. Get back to merging.
-                            </h4>
-                        </div>
-
-                    </OneStep>
                 </NextStepContainer>
             </div>
         )

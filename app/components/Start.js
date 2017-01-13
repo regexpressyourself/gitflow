@@ -44,18 +44,22 @@ class Start extends React.Component {
                     Git keeps your projects in what's called a <i><b>repository</b></i>, or repo for short. Your repository is all of the files in a given project folder. Where to start with your repository depends on what your project looks like right now.
                 </TermsDescription>
 
-                <NextStepContainer isActive={this.state.isActive}>
-                    <TwoStep>
-                        <div style={TwoStepBox} className='float-right btn-black' onClick={() => this.onNextStep("clone")}>
-                            <h4>
+                <NextStepContainer isTwoStep={true} isActive={this.state.isActive}>
+                    <div style={TwoStepBox}
+                         className='float-right btn-black'
+                         onClick={() => this.onNextStep("clone")}>
+                        <h4>
                             I'm starting work on an existing git project
-                            </h4>
-                        </div>
+                        </h4>
+                    </div>
 
-                        <div style={TwoStepBox} className="float-left btn-black" onClick={() => this.onNextStep("init")}>
-                            <h4>I'm adding git to a project for the first time</h4>
-                        </div>
-                    </TwoStep>
+                    <div style={TwoStepBox}
+                         className="float-left btn-black"
+                         onClick={() => this.onNextStep("init")}>
+                        <h4>
+                            I'm adding git to a project for the first time
+                        </h4>
+                    </div>
                 </NextStepContainer>
             </div>
         )

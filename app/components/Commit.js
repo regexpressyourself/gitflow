@@ -56,15 +56,9 @@ class Commit extends React.Component {
                     <kbd className="is-command">git commit</kbd>
                 </TermsDescription>
 
-                <NextStepContainer isActive={this.state.isActive}>
-                    <OneStep>
-                        <div style={NextStepBox} onClick={this.onNextStep} className="btn-black">
-                            <h4>
-                                Combine my changes into the master branch
-                            </h4>
-                        </div>
-
-                    </OneStep>
+                <NextStepContainer isActive={this.state.isActive}
+                                   clickFunction={this.onNextStep.bind(this)}>
+                            Combine my changes into the master branch
                 </NextStepContainer>
             </div>
         )

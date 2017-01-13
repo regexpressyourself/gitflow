@@ -30,7 +30,7 @@ class Push extends React.Component {
     }
     onNextStep() {
         this.setState({
-            isActive: false
+            isActive: true
         });
         this.state.onNextStep("complete");
     }
@@ -51,15 +51,9 @@ class Push extends React.Component {
                     And that's it! You did it! If you follow this workflow you should be able to work with git without the headache.
                 </TermsDescription>
 
-                <NextStepContainer isActive={this.state.isActive}>
-                    <OneStep>
-                        <div style={NextStepBox} onClick={this.onNextStep} className="btn-black">
-                            <h4>
-                                Go back to the beginning of the workflow.
-                            </h4>
-                        </div>
-
-                    </OneStep>
+                <NextStepContainer isActive={this.state.isActive}
+                                   clickFunction={this.onNextStep.bind(this)}>
+                            Go back to the beginning of the workflow.
                 </NextStepContainer>
             </div>
         )

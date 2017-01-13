@@ -53,15 +53,9 @@ class CheckoutMaster extends React.Component {
                     You'll notice all the changes you made earlier have dissapeared. That's ok. The master just branch doesn't know about them yet. Let's fix that.
                 </TermsDescription>
 
-                <NextStepContainer isActive={this.state.isActive}>
-                    <OneStep>
-                        <div style={NextStepBox} onClick={this.onNextStep} className="btn-black">
-                            <h4>
-                                Update master with the latest changes online
-                            </h4>
-                        </div>
-
-                    </OneStep>
+                <NextStepContainer isActive={this.state.isActive}
+                                   clickFunction={this.onNextStep.bind(this)}>
+                            Update master with the latest changes online
                 </NextStepContainer>
             </div>
         )

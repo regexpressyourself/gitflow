@@ -51,15 +51,9 @@ class Pull extends React.Component {
                     <kbd className="is-command">git pull</kbd>
                 </TermsDescription>
 
-                <NextStepContainer isActive={this.state.isActive}>
-                    <OneStep>
-                        <div style={NextStepBox} onClick={this.onNextStep} className="btn-black">
-                            <h4>
+                <NextStepContainer isActive={this.state.isActive}
+                                   clickFunction={this.onNextStep.bind(this)}>
                             Add my branch's changes to the master branch
-                            </h4>
-                        </div>
-
-                    </OneStep>
                 </NextStepContainer>
             </div>
         )

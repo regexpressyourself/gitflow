@@ -1,39 +1,58 @@
 import React            from 'react';
+import TwoStep           from './TwoStep';
+import OneStep           from './OneStep';
 
 class NextStepContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             isActive: false,
-            bodyText: ""
+            bodyText: "",
+            isTwoStep: false
+
         }
     }
+
     componentDidMount() {
         this.setState({
-            isActive: this.props.isActive
+            isActive: this.props.isActive,
+            isTwoStep: this.props.isTwoStep
         });
-        if (this.props.isActive) {
-            this.setState({
-                bodyText: this.props.children
-            });
-        }
+        this.getBodyText.bind(this);
     }
+
     componentWillReceiveProps() {
         this.setState({
             isActive: this.props.isActive
-        }, function() {
-            if (!(this.props.isActive)) {
-                this.setState({
-                    bodyText: ""
-                });
-            }
-            else {
-                this.setState({
-                    bodyText: this.props.children
-                });
-            }
-        });
+        }, this.getBodyText.bind(this));
     }
+
+    getBodyText() {
+        if (!(this.props.isActive)) {
+            this.setState({
+                bodyText: ""
+            });
+        }
+        else {
+            this.getNumberOfChildren();
+        }
+    }
+
+    getNumberOfChildren() {
+        if (this.state.isTwoStep) {
+            this.setState({
+                bodyText: <TwoStep>{this.props.children}</TwoStep>
+            });
+        }
+        else {
+            this.setState({
+                bodyText: <OneStep clickFunction={this.props.clickFunction}>
+                            {this.props.children}
+                        </OneStep>
+            });
+        }
+    }
+
     render() {
         return (
             <div>
