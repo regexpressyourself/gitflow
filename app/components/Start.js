@@ -9,7 +9,7 @@ import TitleContainer    from './TitleContainer';
 import TermsDescription  from './TermsDescription';
 import FlowHeader        from './FlowHeader';
 import NextStepContainer from './NextStepContainer';
-import { NextStepBox} from '../styles';
+import { NextStepBox, TwoStepBox } from '../styles';
 import '../styles/main.css';
 
 class Start extends React.Component {
@@ -46,13 +46,13 @@ class Start extends React.Component {
 
                 <NextStepContainer isActive={this.state.isActive}>
                     <TwoStep>
-                        <div style={NextStepBox} className='float-right btn-black' onClick={() => this.onNextStep("clone")}>
+                        <div style={TwoStepBox} className='float-right btn-black' onClick={() => this.onNextStep("clone")}>
                             <h4>
                             I'm starting work on an existing git project
                             </h4>
                         </div>
 
-                        <div style={NextStepBox} className="float-left btn-black" onClick={() => this.onNextStep("init")}>
+                        <div style={TwoStepBox} className="float-left btn-black" onClick={() => this.onNextStep("init")}>
                             <h4>I'm adding git to a project for the first time</h4>
                         </div>
                     </TwoStep>
