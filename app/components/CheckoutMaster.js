@@ -38,14 +38,10 @@ class CheckoutMaster extends React.Component {
         return (
             <div>
                 <FlowHeader isViewed={this.state.isViewed}>
-                    <TitleContainer>
-                        <StepTitle>Checkout Master</StepTitle>
-                    </TitleContainer>
-                    <TermsContainer>
-                        <Terms isCode="true" term="git checkout master" >
-                            Switch back to the master branch
-                        </Terms>
-                    </TermsContainer>
+                    Checkout Master
+                    <Terms isCode="true" term="git checkout master" >
+                        Switch back to the master branch
+                    </Terms>
                 </FlowHeader>
                 <TermsDescription>
                     Earlier, we checked out a new branch for our work. Now that we've done some work and commited it, it's time to combine those changes into the master branch.
@@ -57,15 +53,9 @@ class CheckoutMaster extends React.Component {
                     You'll notice all the changes you made earlier have dissapeared. That's ok. The master just branch doesn't know about them yet. Let's fix that.
                 </TermsDescription>
 
-                <NextStepContainer isActive={this.state.isActive}>
-                    <OneStep>
-                        <div style={NextStepBox} onClick={this.onNextStep} className="btn-black">
-                            <h4>
-                                Update master with the latest changes online
-                            </h4>
-                        </div>
-
-                    </OneStep>
+                <NextStepContainer isActive={this.state.isActive}
+                                   clickFunction={this.onNextStep.bind(this)}>
+                            Update master with the latest changes online
                 </NextStepContainer>
             </div>
         )

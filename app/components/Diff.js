@@ -37,14 +37,10 @@ class Diff extends React.Component {
         return (
             <div>
                 <FlowHeader isViewed={this.state.isViewed}>
-                    <TitleContainer>
-                        <StepTitle>Git Diff</StepTitle>
-                    </TitleContainer>
-                    <TermsContainer>
-                        <Terms isCode="true" term="git diff" >
-                            See changes between two branches, commits, etc
-                        </Terms>
-                    </TermsContainer>
+                    Git Diff
+                    <Terms isCode="true" term="git diff" >
+                        See changes between two branches, commits, etc
+                    </Terms>
                 </FlowHeader>
                 <TermsDescription>
                     So your merge didn't work. This usually means git just didn't know the best way to combine your changes. It's no need to fear.
@@ -55,15 +51,9 @@ class Diff extends React.Component {
                     I recommend using some kind of GUI to fix non-trivial conflicts. A lot of IDEs offer one, or you're free to choose one from a third party. I won't be covering them here.
                 </TermsDescription>
 
-                <NextStepContainer isActive={this.state.isActive}>
-                    <OneStep>
-                        <div style={NextStepBox} onClick={this.onNextStep} className="btn-black">
-                            <h4>
+                <NextStepContainer isActive={this.state.isActive}
+                                   clickFunction={this.onNextStep.bind(this)}>
                             I've fixed my conflicts. Get back to merging.
-                            </h4>
-                        </div>
-
-                    </OneStep>
                 </NextStepContainer>
             </div>
         )
