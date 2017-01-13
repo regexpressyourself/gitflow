@@ -36,7 +36,7 @@ class Branch extends React.Component {
     }
     render() {
         return (
-            <div>
+            <div id="checkout-section">
                 <FlowHeader isViewed={this.state.isViewed}>
                     <TitleContainer>
                         <StepTitle>Git Checkout</StepTitle>
@@ -55,11 +55,10 @@ class Branch extends React.Component {
 
                 <NextStepContainer isActive={this.state.isActive}>
                     <OneStep>
-                        <div style={NextStepBox}>
-                            <p>
-                                Once you've checked out a new branch, you can get to work
-                            </p>
-                            <button onClick={this.onNextStep} className="btn btn-lg btn-black">Working With Git</button>
+                        <div style={NextStepBox} onClick={this.onNextStep} className="btn-black">
+                            <h4>
+                                Stop messing around with this git stuff and do some work
+                            </h4>
                         </div>
 
                     </OneStep>

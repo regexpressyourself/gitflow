@@ -57,11 +57,10 @@ class Branch extends React.Component {
 
                 <NextStepContainer isActive={this.state.isActive}>
                     <OneStep>
-                        <div style={NextStepBox}>
-                            <p>
-                                Once you've created a new branch, we need to check it out to use it:
-                            </p>
-                            <button onClick={this.onNextStep} className="btn btn-lg btn-black">Checkout a Branch</button>
+                        <div style={NextStepBox} onClick={this.onNextStep} className="btn-black">
+                            <h4>
+                                Checkout and start using your my branch
+                            </h4>
                         </div>
 
                     </OneStep>

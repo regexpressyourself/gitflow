@@ -1,5 +1,6 @@
 import React             from 'react';
-import { Link }          from 'react-router';
+import { Link, hashHistory, Router  }          from 'react-router';
+
 import Terms             from './Terms';
 import TermsContainer    from './TermsContainer';
 import NextStep          from './NextStep';
@@ -31,7 +32,7 @@ class Push extends React.Component {
         this.setState({
             isActive: false
         });
-        this.state.onNextStep("prepull");
+        this.state.onNextStep("complete");
     }
     render() {
         return (
@@ -51,16 +52,15 @@ class Push extends React.Component {
                     <br/><br/>
                     Almost done! The last step is to upload your changes back online. To do this, we will do what's called a <kbd>push</kbd>. To push your changes, run:
                     <kbd className="is-command">git push</kbd>
-                    And that's it! Scroll back up to <a href="#branch"></a>
+                    And that's it! You did it! If you follow this workflow you should be able to work with git without the headache.
                 </TermsDescription>
 
                 <NextStepContainer isActive={this.state.isActive}>
                     <OneStep>
-                        <div style={NextStepBox}>
-                            <p>
-                                Once your files are staged, you can move on to commiting them.
-                            </p>
-                            <button onClick={this.onNextStep} className="btn btn-lg btn-black">Commiting Your Changes</button>
+                        <div style={NextStepBox} onClick={this.onNextStep} className="btn-black">
+                            <h4>
+                                Go back to the beginning of the workflow.
+                            </h4>
                         </div>
 
                     </OneStep>

@@ -41,10 +41,10 @@ let styles = {
     },
     NextStepBox: {
         padding: '10px',
-        border: '1px solid black',
         borderRadius: '10px',
-        maxWidth: '400px',
-        margin: '0 auto'
+        width: '350px',
+        margin: '0 auto',
+        textAlign: 'center'
     },
     TermsDescriptionStyles: {
         margin: '20px auto',

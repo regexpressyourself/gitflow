@@ -46,25 +46,30 @@ class Add extends React.Component {
                         </Terms>
                     </TermsContainer>
                 </FlowHeader>
+
                 <TermsDescription>
-                    After you've made changes, you will want to save them. Saving in git is a two step process: "staging" and "commiting". Don't worry about commiting for now, we will first talk about staging here.
-                    <br/> <br/>
-                    In git lingo, "staging" or "adding" files sets them up (or "stages them") to be saved. To stage a given file, you will use the command <kbd className="is-command">git add {"<"}filename{">"}</kbd>, where <kbd>{"<"}filename{">"}</kbd> is the name of the file you want to save.
-                    <br/> <br/>
-                    You can add multiple files at once by stringing them together, e.g. <kbd className="is-command">git add file1 file2 file3</kbd>.
-                    <br/> <br/>
-                    Alternatively, you can add all the current changes (all the changes listed under <kbd>git status</kbd>) by replacing the filename with a period:
-                    <br/>
+                    After you've made changes, you will want to save them. Saving in git is a two step process:
+                    <span className="left-margin">
+                        1. <kbd>Stage</kbd> changes to be saved
+                        <br/>
+                        2. <kbd>Commit</kbd>, or save those changes
+                    </span>
+
+                    We will discuss staging here.
+                    <br/><br/>
+                    To stage a given file, <kbd>{"<"}filename{">"}</kbd>, you will use the command <kbd className="is-command">git add {"<"}filename{">"}</kbd>
+                    You can also stage multiple files at once by stringing them together:
+                    <kbd className="is-command">git add file1 file2 file3</kbd>
+                    Alternatively, you can stage all the current changes by replacing the filename with a period:
                     <kbd className="is-command">git add .</kbd>
                 </TermsDescription>
 
                 <NextStepContainer isActive={this.state.isActive}>
                     <OneStep>
-                        <div style={NextStepBox}>
-                            <p>
-                                Once your files are staged, you can move on to commiting them.
-                            </p>
-                            <button onClick={this.onNextStep} className="btn btn-lg btn-black">Commiting Your Changes</button>
+                        <div style={NextStepBox} onClick={this.onNextStep} className="btn-black">
+                            <h4>
+                                Commit my staged files
+                            </h4>
                         </div>
 
                     </OneStep>

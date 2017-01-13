@@ -53,11 +53,8 @@ class Init extends React.Component {
 
                 <NextStepContainer isActive={this.state.isActive}>
                     <OneStep>
-                        <div style={NextStepBox}>
-                            <p>
-                                After initializing git, I recommend creating a new "branch" to hold your work. Learn more about that here:
-                            </p>
-                            <button onClick={this.onNextStep} className="btn btn-lg btn-black">Creating a New Branch</button>
+                        <div style={NextStepBox} onClick={this.onNextStep} className="btn-black">
+                            <h4>Add a new branch to my project</h4>
                         </div>
 
                     </OneStep>

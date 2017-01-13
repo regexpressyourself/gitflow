@@ -48,18 +48,14 @@ class Start extends React.Component {
 
                 <NextStepContainer isActive={this.state.isActive}>
                     <TwoStep>
-                        <div style={NextStepBox} className='float-right'>
-                            <p>
-                                If you're starting work on someone else's existing project that already uses git, you will need to clone it.
-                            </p>
-                            <button onClick={() => this.onNextStep("clone")} className="btn btn-lg btn-black">Cloning a Repo</button>
+                        <div style={NextStepBox} className='float-right btn-black' onClick={() => this.onNextStep("clone")}>
+                            <h4>
+                            I'm starting work on an existing git project
+                            </h4>
                         </div>
 
-                        <div style={NextStepBox} className="float-left">
-                            <p>
-                                If you're starting your own project, or adding git to a project you've already been working on, you will need to initialize your project.
-                            </p>
-                            <button onClick={() => this.onNextStep("init")} className="btn btn-lg btn-black">Initializing a Repo</button>
+                        <div style={NextStepBox} className="float-left btn-black" onClick={() => this.onNextStep("init")}>
+                            <h4>I'm adding git to a project for the first time</h4>
                         </div>
                     </TwoStep>
                 </NextStepContainer>

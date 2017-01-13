@@ -48,25 +48,21 @@ class CheckoutMaster extends React.Component {
                     </TermsContainer>
                 </FlowHeader>
                 <TermsDescription>
-                    Earlier, we checked out a new branch for our work. Now that we've done some work, it's time to get them into the master branch. There are a few steps here, but following them will help you avoid some of the typical headaches.
+                    Earlier, we checked out a new branch for our work. Now that we've done some work and commited it, it's time to combine those changes into the master branch.
                     <br/><br/>
-                    Fortunately, this step is easy: checkout master.
+                    Combining changes can take a few steps, but following them can avoid major headaches.
                     <br/><br/>
-                    First, make sure you have all your changes commited.
-                    <br/><br/>
-                    Next, checkout master just like we checked out our development branch: <kbd className="is-command">git checkout master</kbd>
-                    All done!
-                    <br/><br/>
+                    First, we need to check out master.
+                    <kbd className="is-command">git checkout master</kbd>
                     You'll notice all the changes you made earlier have dissapeared. That's ok. The master just branch doesn't know about them yet. Let's fix that.
                 </TermsDescription>
 
                 <NextStepContainer isActive={this.state.isActive}>
                     <OneStep>
-                        <div style={NextStepBox}>
-                            <p>
-                                Before you combine your changes, you should check to see if master has changed since you last updated it. This next step is not strictly necessary every time, but it is easy to do and saves a lot of trouble. I recommend getting in the habit of doing it regardless.
-                            </p>
-                            <button onClick={this.onNextStep} className="btn btn-lg btn-black">Pulling Changes</button>
+                        <div style={NextStepBox} onClick={this.onNextStep} className="btn-black">
+                            <h4>
+                                Update master with the latest changes online
+                            </h4>
                         </div>
 
                     </OneStep>

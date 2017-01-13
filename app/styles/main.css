@@ -8,12 +8,14 @@ p{
     text-align: left;
     font-size: 2em;
 }
-h1 {
+h1, h2
+{
     font-weight: 600;
+    font-size: 39px;
 }
-h2,
 h3,
 h4 {
+    font-size: 32px;
     text-align: left;
     margin: 20px 0 10px 0;
     width: 100%;
@@ -51,7 +53,7 @@ kbd.is-command {
     margin: 50px 0;
 }
 .btn-black {
-    background-color: black;
+    background-color: #191414;
     color: white;
     margin: 20px auto 0;
     text-align: center;
@@ -59,9 +61,18 @@ kbd.is-command {
 .btn-black:hover,
 .btn-black:focus{
     background-color: white;
-    color: black;
-    border: 1px solid black;
+    color: #191414;
+    border: 0px;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 3px 8px 0 rgba(0,0,0,0.4), 0 0 0 1px rgba(0,0,0,0.12);
+    transition-duration: .7s;
+    transition-property: all;
+}
+.left-margin {
+    padding: 10px 100px;
 
+    display: block;
 }
 
 /* transition stuff */

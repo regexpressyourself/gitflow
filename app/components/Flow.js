@@ -148,6 +148,9 @@ class Flow extends React.Component {
     render(){
         return (
             <div>
+                <h1>The Git Flow Flowchart</h1>
+                <hr/>
+                <br/><br/>
                 <ReactCSSTransitionGroup transitionName="appear" transitionEnterTimeout={600} transitionLeaveTimeout={500} >
                     {this.state.start}
                     {this.state.init}
