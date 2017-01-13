@@ -33,7 +33,6 @@ class TwoStep extends React.Component {
                 </div>
                 <div className="col-xs-6">
                     {this.props.children[0]}
-
                 </div>
                 <div className="col-xs-6">
                     {this.props.children[1]}

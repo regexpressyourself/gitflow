@@ -51,18 +51,17 @@ class Work extends React.Component {
                     <br/><br/>
                     ...
                     <br/><br/>
-                    Back? Great. Let's take a look at what you changed. Run <kbd>git status</kbd> to see all the changes that git has noticed. Git will keep track of any time you change, add, or delete a file, and you can always check by running <kbd>git status</kbd>.
+                    Back? Great. Let's take a look at what you changed. Run: <kbd className="is-command">git status</kbd> to see all the changes that git has noticed. Git will keep track of any time you change, add, or delete a file, and you can always check by running <kbd>git status</kbd>.
                     <br/><br/>
                     Now that we have some changes, let's save them in git.
                 </TermsDescription>
 
                 <NextStepContainer isActive={this.state.isActive}>
                     <OneStep>
-                        <div style={NextStepBox}>
-                            <p>
-                                After making your changes, you will want to save them. Just like you can save files onto your computer, you can also save them in git by "adding" them. See more here:
-                            </p>
-                            <button onClick={this.onNextStep} className="btn btn-lg btn-black">Adding Changes</button>
+                        <div style={NextStepBox} onClick={this.onNextStep} className="btn-black">
+                            <h4>
+                                Tell git to save what I've changed
+                            </h4>
                         </div>
 
                     </OneStep>

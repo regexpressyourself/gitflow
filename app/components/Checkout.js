@@ -10,9 +10,9 @@ import TitleContainer    from './TitleContainer';
 import TermsDescription  from './TermsDescription';
 import FlowHeader        from './FlowHeader';
 import NextStepContainer from './NextStepContainer';
-import { NextStepBox } from '../styles';
+import { NextStepBox, CommandsContainer } from '../styles';
 
-class Checkout extends React.Component {
+class Branch extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -31,46 +31,34 @@ class Checkout extends React.Component {
         this.setState({
             isActive: false
         });
-        this.state.onNextStep("pull");
+        this.state.onNextStep("work");
 
     }
     render() {
         return (
-            <div>
+            <div id="checkout-section">
                 <FlowHeader isViewed={this.state.isViewed}>
                     <TitleContainer>
                         <StepTitle>Git Checkout</StepTitle>
                     </TitleContainer>
                     <TermsContainer>
-                        <Terms term="Branch" >
-                            A working copy of a repository, isolated from the other working copies
-                        </Terms>
-                        <Terms isCode="true" term="git branch <branch_name>" >
-                            Creates a new branch
+                        <Terms isCode="true" term="git checkout <new_branch>" >
+                            Start working on the new branch
                         </Terms>
                     </TermsContainer>
                 </FlowHeader>
                 <TermsDescription>
-                    Earlier, we checked out a new branch for our work. Now that we've done some work, it's time to get them into the master branch. There are a few steps here, but following them will help you avoid some of the typical headaches.
-                    <br/><br/>
-                    Fortunately, this step is easy: checkout master.
-                    <br/><br/>
-                    First, make sure you have all your changes commited.
-                    <br/><br/>
-                    Next, checkout master just like we checked out our development branch: <kbd>git checkout master</kbd>.
-                    <br/><br/>
-                    All done!
-                    <br/><br/>
-                    You'll notice all the changes you made earlier have dissapeared. That's ok. The master just branch doesn't know about them yet. Let's fix that.
+                    Now that you've made a new branch, you'll want to switch to it, or in git lingo "check it out". You can do this by running <kbd className="is-command">git checkout {"<"}new_branch{">"}</kbd>
+
+                    Think of each branch as an independent version of your project. The master branch is typically reserved to only accept changes from other branches. By making a new branch and working in it instead, we are sure not to introduce errors into the master branch.
                 </TermsDescription>
 
                 <NextStepContainer isActive={this.state.isActive}>
                     <OneStep>
-                        <div style={NextStepBox}>
-                            <p>
-                                Before you combine your changes, you should check to see if master has changed since you last updated it. This next step is not strictly necessary every time, but it is easy to do and saves a lot of trouble. I recommend getting in the habit of doing it regardless.
-                            </p>
-                            <button onClick={this.onNextStep} className="btn btn-lg btn-black">Pulling Changes</button>
+                        <div style={NextStepBox} onClick={this.onNextStep} className="btn-black">
+                            <h4>
+                                Stop messing around with this git stuff and do some work
+                            </h4>
                         </div>
 
                     </OneStep>
@@ -80,4 +68,4 @@ class Checkout extends React.Component {
     }
 }
 
-export default Checkout;
+export default Branch;

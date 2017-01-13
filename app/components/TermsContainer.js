@@ -5,8 +5,8 @@ class TermsContainer extends React.Component {
     render(){
         return (
                 <div>
-                    <h2>Terms and Commands</h2>
-                    {this.props.children}
+                    <h3>Commands</h3>
+                        {this.props.children}
                 </div>
         )
     }
