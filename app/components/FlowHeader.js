@@ -1,6 +1,5 @@
 import React            from 'react';
 import TitleContainer   from './TitleContainer';
-import TermsContainer   from './TermsContainer';
 import {StepTitleStyle, // Style for the commands section
         TermsBg}        from '../styles'; // div for location of commands section
 
@@ -18,42 +17,40 @@ class FlowHeader extends React.Component {
             isViewed: false
         }
     }
+
     componentDidMount() {
         if (Array.isArray(this.props.children)){
-            if (this.props.children.length === 2) {
-                // Both a title and 1 command was passed
-                this.setState({
-                    title: this.props.children[0],
-                    terms: <TermsContainer>
-    {this.props.children[1]}
-                    </TermsContainer>,
-                    isViewed: this.props.isViewed
-                });
-            }
-            else if (this.props.children.length === 3) {
-                // Both a title and 2 commands were passed
-                this.setState({
-                    title: this.props.children[0],
-                    terms: <TermsContainer>
-                        { this.props.children[1] } +
-                        { this.props.children[2] }
-                    </TermsContainer>,
-                    isViewed: this.props.isViewed
-                });
-            }
-            else {
-                // only 0-2 commands allowed per step
-                console.log("Error: too many commands entered");
-            }
+            /** If more than just the title is passed, this.props.children
+             *  will be an array of children. Element 0 will be the title, and
+             *  the rest will be the terms. Terms are collected in the getTerms
+             *  method.
+             **/
+            this.setState({
+                title:      this.props.children[0],
+                terms:      this.getTerms(),
+                termsTitle: <h3>Commands</h3>,
+                isViewed:   this.props.isViewed
+            });
         }
         else if (this.props.children) {
-            // No "Commands" section
+            // No terms listed, just get the title
             this.setState({
-                title: this.props.children,
-                isViewed: this.props.isViewed
+                title:      this.props.children,
+                termsTitle: "",
+                isViewed:   this.props.isViewed
             });
         }
     }
+
+    getTerms() {
+        // Get all the terms listed
+        var terms = [];
+        for (let i = 1; i < this.props.children.length; i++) {
+            terms.push(this.props.children[i]);
+        }
+        return terms;
+    }
+
     render() {
         return (
             <div className="row flex">
@@ -64,9 +61,9 @@ class FlowHeader extends React.Component {
                         </h2>
                     </TitleContainer>
                 </div>
-
                 <div className="col-xs-6" style={TermsBg}>
-                        {this.state.terms}
+                    {this.state.termsTitle}
+                    {this.state.terms}
                 </div>
             </div>
         )
