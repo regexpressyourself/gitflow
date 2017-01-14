@@ -1,14 +1,13 @@
 import React        from 'react';
+import Main         from '../components/Main';
+import Home         from '../components/Home';
+import First        from '../components/First';
+import Flow         from '../components/Flow';
 import {ReactRouter,
         Router,
         Route,
         hashHistory,
         IndexRoute} from 'react-router';
-import Main         from '../components/Main';
-import Home         from '../components/Home';
-import Start        from '../components/Start';
-import First        from '../components/First';
-import Flow         from '../components/Flow';
 
 let routes = (
     <Router history={hashHistory}>
