@@ -3,7 +3,6 @@ import Terms             from './Terms';
 import TermsDescription  from './TermsDescription';
 import FlowHeader        from './FlowHeader';
 import NextStepContainer from './NextStepContainer';
-import { TwoStepBox } from '../styles';
 
 class Merge extends React.Component {
     constructor(props) {
@@ -51,26 +50,16 @@ class Merge extends React.Component {
                             <br/><br/>
                             If you got an error complaining about a conflict, don't worry! Let's try to fix it.
                 </TermsDescription>
-
-                <NextStepContainer isTwoStep={true} isActive={this.state.isActive}>
-                    <div style={TwoStepBox}
-                         className='float-right'
-                         onClick={() => this.onNextStep("push")}
-                         className="btn-black">
-                        <h4>
+                <NextStepContainer isTwoStep={true}
+                                   isActive={this.state.isActive}
+                                   leftFunction={() => this.onNextStep("push")}
+                                   rightFunction={() => this.onNextStep("diff")}>
+                    <span>
                             It Worked! Upload my new changes online.
-                        </h4>
-                    </div>
-
-                    <div style={TwoStepBox}
-                         className="float-left"
-                         onClick={() => this.onNextStep("diff")}
-                         className="btn-black">
-                        <h4>
+                    </span>
+                    <span>
                             I got an error about a conflict...
-                        </h4>
-                    </div>
-
+                    </span>
                 </NextStepContainer>
             </div>
         )
