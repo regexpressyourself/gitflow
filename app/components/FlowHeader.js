@@ -1,16 +1,20 @@
 import React            from 'react';
 import TitleContainer   from './TitleContainer';
 import TermsContainer   from './TermsContainer';
-import StepTitle        from './StepTitle';
-import {StepTitleStyle,
-        TermsBg}        from '../styles';
+import {StepTitleStyle, // Style for the commands section
+        TermsBg}        from '../styles'; // div for location of commands section
 
 class FlowHeader extends React.Component {
+    /**
+     * FlowHeader contains the title and commands for each
+     * flowchart item. They are positioned on along a vertical
+     * line.
+     **/
     constructor(props) {
         super(props);
         this.state = {
-            title: "",
-            terms: "",
+            title:    "",
+            terms:    "",
             isViewed: false
         }
     }
@@ -37,6 +41,10 @@ class FlowHeader extends React.Component {
                     isViewed: this.props.isViewed
                 });
             }
+            else {
+                // only 0-2 commands allowed per step
+                console.log("Error: too many commands entered");
+            }
         }
         else if (this.props.children) {
             // No "Commands" section
@@ -51,9 +59,9 @@ class FlowHeader extends React.Component {
             <div className="row flex">
                 <div className="col-xs-6" style={StepTitleStyle}>
                     <TitleContainer>
-                        <StepTitle>
+                        <h2>
                             {this.state.title}
-                        </StepTitle>
+                        </h2>
                     </TitleContainer>
                 </div>
 

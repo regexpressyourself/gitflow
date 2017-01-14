@@ -13,18 +13,21 @@ class Push extends React.Component {
         }
         this.onNextStep = this.onNextStep.bind(this);
     }
+
     componentDidMount() {
         this.setState({
             onNextStep: this.props.onNextStep,
-            isActive: this.props.isActive
+            isActive:   this.props.isActive
         });
     }
+
     onNextStep() {
         this.setState({
             isActive: true
         });
         this.state.onNextStep("complete");
     }
+
     render() {
         return (
             <div>
@@ -41,7 +44,6 @@ class Push extends React.Component {
                     <kbd className="is-command">git push</kbd>
                     And that's it! You did it! If you follow this workflow you should be able to work with git without the headache.
                 </TermsDescription>
-
                 <NextStepContainer isActive={this.state.isActive}
                                    clickFunction={this.onNextStep.bind(this)}>
                             Go back to the beginning of the workflow.

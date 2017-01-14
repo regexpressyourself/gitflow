@@ -6,21 +6,24 @@ class OneStep extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            leftChild: "",
+            leftChild:  "",
             rightChild: ""
         }
     }
+
     componentDidRender() {
         if (Array.isArray(this.props.children) &&
             this.props.children[0]             &&
             this.props.children[1]) {
 
             this.setState({
-                leftChild: this.props.children[0],
+                leftChild:  this.props.children[0],
                 rightChild: this.props.children[1]
             });
+
         }
     }
+
     render() {
         return (
             <div className="row">
@@ -40,4 +43,5 @@ class OneStep extends React.Component {
         )
     }
 }
+
 export default OneStep;

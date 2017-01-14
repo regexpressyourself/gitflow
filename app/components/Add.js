@@ -5,21 +5,24 @@ import FlowHeader        from './FlowHeader';
 import NextStepContainer from './NextStepContainer';
 
 class Add extends React.Component {
+    /** Add component handles the "git add" step
+    **/
     constructor(props) {
         super(props);
         this.state = {
-            isActive: false,
-            isViewed: true
+            isActive: false, // whether the step is the last one listed
+            isViewed: true   // whether the step has been reached
         }
         this.onNextStep = this.onNextStep.bind(this);
     }
     componentDidMount() {
         this.setState({
-            onNextStep: this.props.onNextStep,
-            isActive: this.props.isActive
+            onNextStep: this.props.onNextStep, // Flow's onNextStep()
+            isActive:   this.props.isActive    // from Flow
         });
     }
     onNextStep() {
+        // Go to next step in flowchart
         this.setState({
             isActive: false
         });

@@ -13,18 +13,21 @@ class Clone extends React.Component {
         }
         this.onNextStep = this.onNextStep.bind(this);
     }
+
     componentDidMount() {
         this.setState({
             onNextStep: this.props.onNextStep,
-            isActive: this.props.isActive
+            isActive:   this.props.isActive
         });
     }
+
     onNextStep() {
         this.setState({
             isActive: false
         });
         this.state.onNextStep("branch");
     }
+
     render() {
         return (
             <div>

@@ -16,7 +16,7 @@ class Pull extends React.Component {
     componentDidMount() {
         this.setState({
             onNextStep: this.props.onNextStep,
-            isActive: this.props.isActive
+            isActive:   this.props.isActive
         });
     }
     onNextStep() {
