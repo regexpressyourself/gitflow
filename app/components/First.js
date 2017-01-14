@@ -14,7 +14,7 @@ class First extends React.Component {
     }
 
     goToFlowchart() {
-        window.location.href="/gitflow//#/flow?steps=start";
+        window.location.href="/gitflow/#/flow?steps=start";
     }
 
     render() {
@@ -25,7 +25,7 @@ class First extends React.Component {
                     Before we get to git itself, let's talk more about what it is and how this guide is going to work.
                 </p>
                 <p>
-                    Feel free to <Link to='/gitflow/#/flow'>skip this section</Link>.
+                    Feel free to <Link to='/flow'>skip this section</Link>.
                 </p>
                 <div onClick={this.goToFlowchart}
                      style={NextStepBox}
