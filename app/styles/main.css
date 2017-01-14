@@ -33,6 +33,9 @@ kbd.is-command {
     margin: 15px auto;
 }
 
+.lead {
+    text-align: center;
+}
 .container {
     max-width: 70%;
 }
@@ -68,6 +71,10 @@ kbd.is-command {
     box-shadow: 0 3px 8px 0 rgba(0,0,0,0.4), 0 0 0 1px rgba(0,0,0,0.12);
     transition-duration: .7s;
     transition-property: all;
+}
+.btn-first {
+    width: 300px;
+    padding: 5px 10px;
 }
 .left-margin {
     padding: 10px 100px;

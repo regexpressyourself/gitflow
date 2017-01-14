@@ -1,33 +1,28 @@
 import React             from 'react';
-import { Link }          from 'react-router';
 import Terms             from './Terms';
-import TermsContainer    from './TermsContainer';
-import NextStep          from './NextStep';
-import StepTitle         from './StepTitle';
-import TwoStep           from './TwoStep';
-import OneStep           from './OneStep';
-import TitleContainer    from './TitleContainer';
 import TermsDescription  from './TermsDescription';
 import FlowHeader        from './FlowHeader';
 import NextStepContainer from './NextStepContainer';
-import { NextStepBox } from '../styles';
 
 class Add extends React.Component {
+    /** Add component handles the "git add" step
+    **/
     constructor(props) {
         super(props);
         this.state = {
-            isActive: false,
-            isViewed: true
+            isActive: false, // whether the step is the last one listed
+            isViewed: true   // whether the step has been reached
         }
         this.onNextStep = this.onNextStep.bind(this);
     }
     componentDidMount() {
         this.setState({
-            onNextStep: this.props.onNextStep,
-            isActive: this.props.isActive
+            onNextStep: this.props.onNextStep, // Flow's onNextStep()
+            isActive:   this.props.isActive    // from Flow
         });
     }
     onNextStep() {
+        // Go to next step in flowchart
         this.setState({
             isActive: false
         });
@@ -37,14 +32,10 @@ class Add extends React.Component {
         return (
             <div>
                 <FlowHeader isViewed={this.state.isViewed}>
-                    <TitleContainer>
-                        <StepTitle>Git Add</StepTitle>
-                    </TitleContainer>
-                    <TermsContainer>
-                        <Terms isCode="true" term="git add <filename>" >
-                            Adds the changes in a given file to git
-                        </Terms>
-                    </TermsContainer>
+                    Git Add
+                    <Terms isCode="true" term="git add <filename>" >
+                        Adds the changes in a given file to git
+                    </Terms>
                 </FlowHeader>
 
                 <TermsDescription>
@@ -64,15 +55,9 @@ class Add extends React.Component {
                     <kbd className="is-command">git add .</kbd>
                 </TermsDescription>
 
-                <NextStepContainer isActive={this.state.isActive}>
-                    <OneStep>
-                        <div style={NextStepBox} onClick={this.onNextStep} className="btn-black">
-                            <h4>
-                                Commit my staged files
-                            </h4>
-                        </div>
-
-                    </OneStep>
+                <NextStepContainer isActive={this.state.isActive}
+                                   clickFunction={this.onNextStep.bind(this)}>
+                            Commit my staged files
                 </NextStepContainer>
             </div>
         )
