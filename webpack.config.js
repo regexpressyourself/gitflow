@@ -4,13 +4,13 @@ var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
   filename: 'index.html',
   inject: 'body'
 });
-
+const webpack = require('webpack');
 module.exports = {
   entry: [
     './app/index.js'
   ],
   output: {
-    path: __dirname + '/dist',
+    path: __dirname,
     filename: "index_bundle.js"
   },
   module: {
@@ -26,5 +26,15 @@ module.exports = {
           loader: "style-loader!css-loader"}
     ]
   },
-  plugins: [HTMLWebpackPluginConfig]
+  plugins: [
+
+      new webpack.DefinePlugin({
+          'process.env': {
+              NODE_ENV: JSON.stringify('production')
+          }
+      }),
+
+      new webpack.optimize.UglifyJsPlugin(),
+      HTMLWebpackPluginConfig
+  ]
 };
