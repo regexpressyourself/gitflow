@@ -1,17 +1,8 @@
 import React             from 'react';
-import { Link, hashHistory, Router  }          from 'react-router';
-
 import Terms             from './Terms';
-import TermsContainer    from './TermsContainer';
-import NextStep          from './NextStep';
-import StepTitle         from './StepTitle';
-import TwoStep           from './TwoStep';
-import OneStep           from './OneStep';
-import TitleContainer    from './TitleContainer';
 import TermsDescription  from './TermsDescription';
 import FlowHeader        from './FlowHeader';
 import NextStepContainer from './NextStepContainer';
-import { NextStepBox } from '../styles';
 
 class Push extends React.Component {
     constructor(props) {

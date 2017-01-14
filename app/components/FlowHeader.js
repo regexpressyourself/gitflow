@@ -1,9 +1,9 @@
-import React        from 'react';
-import { TermsBg } from '../styles';
-import {StepTitleStyle} from '../styles';
-import TitleContainer from './TitleContainer';
-import TermsContainer    from './TermsContainer';
-import StepTitle         from './StepTitle';
+import React            from 'react';
+import TitleContainer   from './TitleContainer';
+import TermsContainer   from './TermsContainer';
+import StepTitle        from './StepTitle';
+import {StepTitleStyle,
+        TermsBg}        from '../styles';
 
 class FlowHeader extends React.Component {
     constructor(props) {

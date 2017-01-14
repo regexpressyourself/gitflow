@@ -1,6 +1,6 @@
-import React            from 'react';
-import TwoStep           from './TwoStep';
-import OneStep           from './OneStep';
+import React   from 'react';
+import TwoStep from './TwoStep';
+import OneStep from './OneStep';
 
 class NextStepContainer extends React.Component {
     constructor(props) {

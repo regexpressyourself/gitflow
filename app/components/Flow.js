@@ -14,8 +14,8 @@ import Checkout from './Checkout';
 import CheckoutMaster from './CheckoutMaster';
 import Pull     from './Pull';
 import Merge    from './Merge';
-import Remerge    from './Remerge';
-import Diff     from './Diff';
+import Remerge from './Remerge';
+import Diff    from './Diff';
 
 class Flow extends React.Component {
     constructor(props) {

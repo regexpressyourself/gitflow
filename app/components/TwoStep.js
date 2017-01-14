@@ -1,6 +1,8 @@
-import React          from 'react';
-import { Link }       from 'react-router';
-import {StepLine, ArrowLine, InsideArrowLine} from '../styles';
+import React             from 'react';
+import { Link }          from 'react-router';
+import {StepLine,
+        ArrowLine,
+        InsideArrowLine} from '../styles';
 
 class TwoStep extends React.Component {
     constructor(props) {

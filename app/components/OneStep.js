@@ -1,7 +1,6 @@
-import React          from 'react';
-import { Link }       from 'react-router';
-import {OneStepLine } from '../styles';
-import { NextStepBox } from '../styles';
+import React           from 'react';
+import { OneStepLine,
+         NextStepBox } from '../styles';
 
 class OneStep extends React.Component {
     constructor(props) {
