@@ -1,7 +1,8 @@
-import React                 from 'react';
-import { ReactRouter, Link } from 'react-router';
-import '../styles/main.css';
+import React          from 'react';
+import { ReactRouter,
+         Link }       from 'react-router';
 import { NextStepBox} from '../styles';
+import '../styles/main.css';
 
 class First extends React.Component {
     constructor(props){

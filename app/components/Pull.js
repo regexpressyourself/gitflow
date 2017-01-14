@@ -1,16 +1,8 @@
 import React             from 'react';
-import { Link }          from 'react-router';
 import Terms             from './Terms';
-import TermsContainer    from './TermsContainer';
-import NextStep          from './NextStep';
-import StepTitle         from './StepTitle';
-import TwoStep           from './TwoStep';
-import OneStep           from './OneStep';
-import TitleContainer    from './TitleContainer';
 import TermsDescription  from './TermsDescription';
 import FlowHeader        from './FlowHeader';
 import NextStepContainer from './NextStepContainer';
-import { NextStepBox } from '../styles';
 
 class Pull extends React.Component {
     constructor(props) {
@@ -24,7 +16,7 @@ class Pull extends React.Component {
     componentDidMount() {
         this.setState({
             onNextStep: this.props.onNextStep,
-            isActive: this.props.isActive
+            isActive:   this.props.isActive
         });
     }
     onNextStep() {
