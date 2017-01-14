@@ -1,16 +1,22 @@
 import React          from 'react';
+import { NextStepBox} from '../styles';
 import { ReactRouter,
          Link }       from 'react-router';
-import { NextStepBox} from '../styles';
 import '../styles/main.css';
 
 class First extends React.Component {
+    /** First is an intro to the site, detailing
+     *  what is covered and how the site works.
+     **/
+
     constructor(props){
         super (props);
     }
+
     goToFlowchart() {
         window.location.href="/#/flow?steps=start";
     }
+
     render() {
         return (
             <div>
@@ -21,7 +27,9 @@ class First extends React.Component {
                 <p>
                     Feel free to <Link to='/flow'>skip this section</Link>.
                 </p>
-                <div onClick={this.goToFlowchart} style={NextStepBox} className="btn-black btn-first">
+                <div onClick={this.goToFlowchart}
+                     style={NextStepBox}
+                     className="btn-black btn-first">
                     <h3>
                         Skip this and get to gitting
                     </h3>
@@ -38,7 +46,9 @@ class First extends React.Component {
                     If you're using a GUI instead, you should still be able to follow the steps, but the commands won't apply to you.
                 </p>
                 <h2>Enough Talk</h2>
-                <div onClick={this.goToFlowchart} style={NextStepBox} className="btn-black btn-first">
+                <div onClick={this.goToFlowchart}
+                     style={NextStepBox}
+                     className="btn-black btn-first">
                     <h3>
                         Get to gitting
                     </h3>

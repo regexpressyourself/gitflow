@@ -1,18 +1,19 @@
-import React             from 'react';
-import { Link }          from 'react-router';
-import {StepLine,
-        ArrowLine,
-        InsideArrowLine} from '../styles';
-import { TwoStepBox }    from '../styles';
+import React               from 'react';
+import { Link }            from 'react-router';
+import { TwoStepBox,
+         StepLine,
+         ArrowLine,
+         InsideArrowLine } from '../styles';
 
 class TwoStep extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            leftChild: "",
+            leftChild:  "",
             rightChild: ""
         }
     }
+
     componentDidRender() {
         if (Array.isArray(this.props.children) &&
             this.props.children.length === 2 )
@@ -25,6 +26,7 @@ class TwoStep extends React.Component {
                 });
             }
     }
+
     render() {
         return (
             <div className="row">
@@ -44,7 +46,7 @@ class TwoStep extends React.Component {
                 </div>
                 <div className="col-xs-6">
                     <div style={TwoStepBox}
-                         className='float-right btn-black'
+                         className='float-left btn-black'
                          onClick={this.props.rightFunction}>
                         <h4>
                             {this.props.children[1]}

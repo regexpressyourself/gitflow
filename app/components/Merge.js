@@ -10,22 +10,25 @@ class Merge extends React.Component {
         this.state = {
             isActive: false,
             isViewed: true,
-            reMerge: false
+            reMerge:  false
         }
         this.onNextStep = this.onNextStep.bind(this);
     }
+
     componentDidMount() {
         this.setState({
             onNextStep: this.props.onNextStep,
-            isActive: this.props.isActive
+            isActive:   this.props.isActive
         });
     }
+
     onNextStep(nextComponent) {
         this.setState({
             isActive: false
         });
         this.state.onNextStep(nextComponent);
     }
+
     render() {
         return (
             <div>

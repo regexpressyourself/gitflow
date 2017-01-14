@@ -1,5 +1,4 @@
-import React                   from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import React          from 'react';
 import {hashHistory}  from 'react-router';
 import Start          from './Start';
 import Init           from './Init';
@@ -15,6 +14,7 @@ import Pull           from './Pull';
 import Merge          from './Merge';
 import Remerge        from './Remerge';
 import Diff           from './Diff';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import '../styles/main.css';
 
 class Flow extends React.Component {
@@ -64,7 +64,7 @@ class Flow extends React.Component {
         // TODO add check for dups
         hashHistory.push({
             pathname: '/flow/',
-            search: '?steps=' + urlStepParameters
+            search:   '?steps=' + urlStepParameters
         })
     }
 
@@ -179,7 +179,17 @@ class Flow extends React.Component {
                 <h1>The Git Flow Flowchart</h1>
                 <hr/>
                 <br/><br/>
-                <ReactCSSTransitionGroup transitionName="appear" transitionEnterTimeout={600} transitionLeaveTimeout={500} >
+                <ReactCSSTransitionGroup transitionName="appear"
+                                         transitionEnterTimeout={600}
+                                         transitionLeaveTimeout={500} >
+                    {/* The state for each component will be set when the
+                        component appears in the url, or is passed to the onNextStep
+                        function. They appear in the same order, so we can just
+                        declare them here, and set them as they come up.
+
+                        Refactor could include a state.view element that is added
+                        to, but this works for now.
+                      */}
                     {this.state.start}
                     {this.state.init}
                     {this.state.clone}

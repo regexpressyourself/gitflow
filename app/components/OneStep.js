@@ -3,6 +3,8 @@ import { OneStepLine,
          NextStepBox } from '../styles';
 
 class OneStep extends React.Component {
+    /* OneStep holds the button when only one option exists. */
+
     constructor(props) {
         super(props);
         this.state = {
@@ -27,7 +29,6 @@ class OneStep extends React.Component {
     render() {
         return (
             <div className="row">
-
                 <div style={OneStepLine}>
                 </div>
                 <div className="col-xs-12">

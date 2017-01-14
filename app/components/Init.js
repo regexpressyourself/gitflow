@@ -5,6 +5,8 @@ import FlowHeader        from './FlowHeader';
 import NextStepContainer from './NextStepContainer';
 
 class Init extends React.Component {
+    // The git init step of the flowchart
+
     constructor(props) {
         super(props);
         this.state = {
@@ -13,19 +15,21 @@ class Init extends React.Component {
         }
         this.onNextStep = this.onNextStep.bind(this);
     }
+
     componentDidMount() {
         this.setState({
             onNextStep: this.props.onNextStep,
-            isActive: this.props.isActive
+            isActive:   this.props.isActive
         });
     }
+
     onNextStep() {
         this.setState({
             isActive: false
         });
         this.state.onNextStep("branch");
-
     }
+
     render() {
         return (
             <div>
@@ -36,13 +40,15 @@ class Init extends React.Component {
                     </Terms>
                 </FlowHeader>
                 <TermsDescription>
-                    You can bootstrap a new repository by using the command: <kbd className="is-command">git init</kbd> at the top folder of your project. This will create a .git folder for you, which will store the different versions of your files in git's own way. Running <kbd>git init</kbd> is all that's needed to start using git.
+                    You can bootstrap a new repository by using the command:
+                    <kbd className="is-command">
+                        git init
+                    </kbd>
+                    Make sure to run the command in the top folder of your project. This will create a .git folder for you, which will store the different versions of your files in git's own way. Running <kbd>git init</kbd> is all that's needed to start using git.
                 </TermsDescription>
-
                 <NextStepContainer isActive={this.state.isActive}
                                    clickFunction={this.onNextStep.bind(this)}>
                                 Add a new branch to my project
-
                 </NextStepContainer>
             </div>
         )

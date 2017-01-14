@@ -3,13 +3,18 @@ import TwoStep from './TwoStep';
 import OneStep from './OneStep';
 
 class NextStepContainer extends React.Component {
+    /** NextStepContainer sets up the next step button.
+    *   There are two options to the next step: 1 or 2 two steps.
+    *   Two steps will be wrapped in the TwoStep component, and one step in
+    *   the OneStep component
+    **/
+
     constructor(props) {
         super(props);
         this.state = {
             isActive:  false,
-            bodyText:  "",
-            isTwoStep: false
-
+            bodyText:  "",   // holds either OneStep or TwoStep component
+            isTwoStep: false // One step by default
         }
     }
 
@@ -28,7 +33,7 @@ class NextStepContainer extends React.Component {
     }
 
     getBodyText() {
-        if (!(this.props.isActive)) {
+        if (!this.props.isActive) {
             this.setState({
                 bodyText: ""
             });
@@ -41,17 +46,21 @@ class NextStepContainer extends React.Component {
     getNumberOfChildren() {
         if (this.state.isTwoStep) {
             this.setState({
-                bodyText: <TwoStep rightFunction={this.props.rightFunction}
-                                   leftFunction={this.props.leftFunction}>
-    {this.props.children}
-                </TwoStep>
+                bodyText: (
+                    <TwoStep rightFunction={this.props.rightFunction}
+                             leftFunction={this.props.leftFunction}>
+                        {this.props.children}
+                    </TwoStep>
+                )
             });
         }
         else {
             this.setState({
-                bodyText: <OneStep clickFunction={this.props.clickFunction}>
-                            {this.props.children}
-                        </OneStep>
+                bodyText: (
+                    <OneStep clickFunction={this.props.clickFunction}>
+                        {this.props.children}
+                    </OneStep>
+                )
             });
         }
     }
@@ -64,4 +73,5 @@ class NextStepContainer extends React.Component {
         )
     }
 }
+
 export default NextStepContainer;

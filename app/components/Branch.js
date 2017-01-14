@@ -5,6 +5,8 @@ import FlowHeader        from './FlowHeader';
 import NextStepContainer from './NextStepContainer';
 
 class Branch extends React.Component {
+    // Branch is the branch step in the flowchart
+
     constructor(props) {
         super(props);
         this.state = {
@@ -13,19 +15,21 @@ class Branch extends React.Component {
         }
         this.onNextStep = this.onNextStep.bind(this);
     }
+
     componentDidMount() {
         this.setState({
             onNextStep: this.props.onNextStep,
-            isActive: this.props.isActive
+            isActive:   this.props.isActive
         });
     }
+
     onNextStep() {
         this.setState({
             isActive: false
         });
         this.state.onNextStep("checkout");
-
     }
+
     render() {
         return (
             <div>
@@ -40,9 +44,12 @@ class Branch extends React.Component {
                     <br/><br/>
                     Every git repository starts with one branch: <kbd>master</kbd>. This is the main version of your project, and is typically shared amonst the team. From master, you can create as many branches as you want. I recommend always creating a branch for your work, keeping master as a clean slate. We will talk more about why later.
                     <br/><br/>
-                    You can create a branch by running: <kbd className="is-command">git branch {"<"}new_branch{">"}</kbd> <kbd>{"<"}new_branch{">"}</kbd> is the name of your branch (it can even be "new_branch" if you're not feeling very creative).
+                    You can create a branch by running:
+                    <kbd className="is-command">
+                        git branch {"<"}new_branch{">"}
+                    </kbd>
+                    <kbd>{"<"}new_branch{">"}</kbd> is the name of your branch (it can even be "new_branch" if you're not feeling very creative).
                 </TermsDescription>
-
                 <NextStepContainer isActive={this.state.isActive}
                                    clickFunction={this.onNextStep.bind(this)}>
                             Checkout and start using your my branch

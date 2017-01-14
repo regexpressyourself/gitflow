@@ -5,6 +5,10 @@ import FlowHeader        from './FlowHeader';
 import NextStepContainer from './NextStepContainer';
 
 class Push extends React.Component {
+    /** Push is the last step in the flowchart. 
+    *   The next step will be to circle back up to "Checkout"
+    **/
+
     constructor(props) {
         super(props);
         this.state = {
@@ -41,7 +45,11 @@ class Push extends React.Component {
                     <i> Note: If you haven't set up a remote repository yet, you should do that before pushing. See GitHub's instructions for that <a href="https://help.github.com/articles/adding-a-remote/">on their site here</a></i>
                     <br/><br/>
                     Almost done! The last step is to upload your changes back online. To do this, we will do what's called a <kbd>push</kbd>. To push your changes, run:
-                    <kbd className="is-command">git push</kbd>
+
+                    <kbd className="is-command">
+                        git push
+                    </kbd>
+
                     And that's it! You did it! If you follow this workflow you should be able to work with git without the headache.
                 </TermsDescription>
                 <NextStepContainer isActive={this.state.isActive}

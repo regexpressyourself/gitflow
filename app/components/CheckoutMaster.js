@@ -5,6 +5,8 @@ import FlowHeader        from './FlowHeader';
 import NextStepContainer from './NextStepContainer';
 
 class CheckoutMaster extends React.Component {
+    // CheckoutMaster details switching back to the master branch
+
     constructor(props) {
         super(props);
         this.state = {
@@ -13,12 +15,14 @@ class CheckoutMaster extends React.Component {
         }
         this.onNextStep = this.onNextStep.bind(this);
     }
+
     componentDidMount() {
         this.setState({
             onNextStep: this.props.onNextStep,
             isActive: this.props.isActive
         });
     }
+
     onNextStep() {
         this.setState({
             isActive: false
@@ -26,6 +30,7 @@ class CheckoutMaster extends React.Component {
         this.state.onNextStep("pull");
 
     }
+
     render() {
         return (
             <div>
@@ -41,7 +46,9 @@ class CheckoutMaster extends React.Component {
                     Combining changes can take a few steps, but following them can avoid major headaches.
                     <br/><br/>
                     First, we need to check out master.
-                    <kbd className="is-command">git checkout master</kbd>
+                    <kbd className="is-command">
+                        git checkout master
+                    </kbd>
                     You'll notice all the changes you made earlier have dissapeared. That's ok. The master just branch doesn't know about them yet. Let's fix that.
                 </TermsDescription>
 

@@ -1,7 +1,9 @@
-import React                 from 'react';
-import { ReactRouter, Link } from 'react-router';
+import React          from 'react';
+import { ReactRouter,
+         Link }       from 'react-router';
 
 class Home extends React.Component {
+    // Home is the index page to the site
     render() {
         return (
             <div>
