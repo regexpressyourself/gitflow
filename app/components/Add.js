@@ -1,33 +1,28 @@
 import React             from 'react';
-import { Link }          from 'react-router';
 import Terms             from './Terms';
-import TermsContainer    from './TermsContainer';
-import NextStep          from './NextStep';
-import StepTitle         from './StepTitle';
-import TwoStep           from './TwoStep';
-import OneStep           from './OneStep';
-import TitleContainer    from './TitleContainer';
 import TermsDescription  from './TermsDescription';
 import FlowHeader        from './FlowHeader';
 import NextStepContainer from './NextStepContainer';
-import { NextStepBox } from '../styles';
 
 class Add extends React.Component {
+    /** Add component handles the "git add" step
+    **/
     constructor(props) {
         super(props);
         this.state = {
-            isActive: false,
-            isViewed: true
+            isActive: false, // whether the step is the last one listed
+            isViewed: true   // whether the step has been reached
         }
         this.onNextStep = this.onNextStep.bind(this);
     }
     componentDidMount() {
         this.setState({
-            onNextStep: this.props.onNextStep,
-            isActive: this.props.isActive
+            onNextStep: this.props.onNextStep, // Flow's onNextStep()
+            isActive:   this.props.isActive    // from Flow
         });
     }
     onNextStep() {
+        // Go to next step in flowchart
         this.setState({
             isActive: false
         });
