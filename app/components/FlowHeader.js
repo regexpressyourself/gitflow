@@ -1,5 +1,4 @@
 import React            from 'react';
-import TitleContainer   from './TitleContainer';
 import {StepTitleStyle, // Style for the commands section
         TermsBg}        from '../styles'; // div for location of commands section
 
@@ -13,8 +12,7 @@ class FlowHeader extends React.Component {
         super(props);
         this.state = {
             title:    "",
-            terms:    "",
-            isViewed: false
+            terms:    ""
         }
     }
 
@@ -28,16 +26,14 @@ class FlowHeader extends React.Component {
             this.setState({
                 title:      this.props.children[0],
                 terms:      this.getTerms(),
-                termsTitle: <h3>Commands</h3>,
-                isViewed:   this.props.isViewed
+                termsTitle: <h3>Commands</h3>
             });
         }
         else if (this.props.children) {
             // No terms listed, just get the title
             this.setState({
                 title:      this.props.children,
-                termsTitle: "",
-                isViewed:   this.props.isViewed
+                termsTitle: ""
             });
         }
     }
@@ -55,11 +51,9 @@ class FlowHeader extends React.Component {
         return (
             <div className="row flex">
                 <div className="col-xs-6" style={StepTitleStyle}>
-                    <TitleContainer>
                         <h2>
                             {this.state.title}
                         </h2>
-                    </TitleContainer>
                 </div>
                 <div className="col-xs-6" style={TermsBg}>
                     {this.state.termsTitle}

@@ -4,34 +4,10 @@ import TermsDescription  from './TermsDescription';
 import FlowHeader        from './FlowHeader';
 import NextStepContainer from './NextStepContainer';
 
-class Diff extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isActive: false,
-            isViewed: true
-        }
-        this.onNextStep = this.onNextStep.bind(this);
-    }
-
-    componentDidMount() {
-        this.setState({
-            onNextStep: this.props.onNextStep,
-            isActive:   this.props.isActive
-        });
-    }
-
-    onNextStep() {
-        this.setState({
-            isActive: false
-        });
-        this.state.onNextStep("remerge");
-    }
-
-    render() {
+function Diff(props) {
         return (
             <div>
-                <FlowHeader isViewed={this.state.isViewed}>
+                <FlowHeader>
                     Git Diff
                     <Terms isCode="true" term="git diff" >
                         See changes between two branches, commits, etc
@@ -48,13 +24,12 @@ class Diff extends React.Component {
                     </kbd>
                     I recommend using some kind of GUI to fix non-trivial conflicts. A lot of IDEs offer one, or you're free to choose one from a third party. I won't be covering them here.
                 </TermsDescription>
-                <NextStepContainer isActive={this.state.isActive}
-                                   clickFunction={this.onNextStep.bind(this)}>
+                <NextStepContainer isActive={props.isActive}
+                                   clickFunction={() =>props.onNextStep("remerge")}>
                             I've fixed my conflicts. Get back to merging.
                 </NextStepContainer>
             </div>
         )
-    }
 }
 
 export default Diff;

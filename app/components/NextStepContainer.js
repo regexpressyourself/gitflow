@@ -19,11 +19,11 @@ class NextStepContainer extends React.Component {
     }
 
     componentDidMount() {
+
         this.setState({
             isActive:  this.props.isActive,
             isTwoStep: this.props.isTwoStep
-        });
-        this.getBodyText.bind(this);
+        }, this.getBodyText.bind(this));
     }
 
     componentWillReceiveProps() {

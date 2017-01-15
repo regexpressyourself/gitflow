@@ -175,7 +175,7 @@ class Flow extends React.Component {
 
     render(){
         return (
-            <div>
+            <div id="flowchart-container">
                 <h1>The Git Flow Flowchart</h1>
                 <hr/>
                 <br/><br/>
