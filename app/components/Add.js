@@ -34,7 +34,7 @@ function Add(props) {
             </TermsDescription>
 
             <NextStepContainer isActive={props.isActive}
-                               clickFunction={props.onNextStep("commit")}>
+                               clickFunction={() => props.onNextStep("commit")}>
                 Commit my staged files
             </NextStepContainer>
         </div>
