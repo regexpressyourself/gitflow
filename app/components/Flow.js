@@ -30,19 +30,19 @@ class Flow extends React.Component {
             stepsAsComponents: [], // component array of steps reached so far
             components:        { // "associative array" of string-to-component conversions
                 "push":           <Push           onNextStep={this.onNextStep}/>,
-                "diff":           <Diff           onNextStep={this.onNextStep}/>,
-                "remerge":        <Remerge        onNextStep={this.onNextStep}/>,
-                "merge":          <Merge          onNextStep={this.onNextStep}/>,
-                "pull":           <Pull           onNextStep={this.onNextStep}/>,
-                "checkout":       <Checkout       onNextStep={this.onNextStep}/>,
-                "checkoutmaster": <CheckoutMaster onNextStep={this.onNextStep}/>,
-                "commit":         <Commit         onNextStep={this.onNextStep}/>,
-                "add":            <Add            onNextStep={this.onNextStep}/>,
-                "work":           <Work           onNextStep={this.onNextStep}/>,
-                "branch":         <Branch         onNextStep={this.onNextStep}/>,
-                "clone":          <Clone          onNextStep={this.onNextStep}/>,
-                "init":           <Init           onNextStep={this.onNextStep}/>,
-                "start":          <Start          onNextStep={this.onNextStep}/>
+                                 "diff":           <Diff           onNextStep={this.onNextStep}/>,
+                                 "remerge":        <Remerge        onNextStep={this.onNextStep}/>,
+                                 "merge":          <Merge          onNextStep={this.onNextStep}/>,
+                                 "pull":           <Pull           onNextStep={this.onNextStep}/>,
+                                 "checkout":       <Checkout       onNextStep={this.onNextStep}/>,
+                                 "checkoutmaster": <CheckoutMaster onNextStep={this.onNextStep}/>,
+                                 "commit":         <Commit         onNextStep={this.onNextStep}/>,
+                                 "add":            <Add            onNextStep={this.onNextStep}/>,
+                                 "work":           <Work           onNextStep={this.onNextStep}/>,
+                                 "branch":         <Branch         onNextStep={this.onNextStep}/>,
+                                 "clone":          <Clone          onNextStep={this.onNextStep}/>,
+                                 "init":           <Init           onNextStep={this.onNextStep}/>,
+                                 "start":          <Start          onNextStep={this.onNextStep}/>
             }
         }
     }
@@ -62,9 +62,24 @@ class Flow extends React.Component {
     onNextStep(nextStep) {
         // Update the view when a next step is passed in
         let listOfSteps = this.state.stepsAsString;
-        this.addNextStep(nextStep, listOfSteps); // add step to listOfSteps
-        this.updateUrl(listOfSteps.join("+"));        // add step to URL's step parameter
-        this.updateView(listOfSteps);                 // add step to stepsAsComponents
+
+        if (nextStep === "complete") {
+            // scroll back up to "git checkout" after pushing
+            this.scrollToCheckoutSection();
+        }
+        else {
+            this.addNextStep(nextStep, listOfSteps); // add step to listOfSteps
+            this.updateUrl(listOfSteps.join("+"));   // add step to URL's step parameter
+            this.updateView(listOfSteps);            // add step to stepsAsComponents
+        }
+    }
+
+    scrollToCheckoutSection() {
+        $(document).ready(function () {
+            $("html, body").animate({
+                scrollTop: $("#checkout-section").offset().top
+            }, 500);
+        });
     }
 
     addNextStep(nextStep, listOfSteps) {
@@ -119,22 +134,21 @@ class Flow extends React.Component {
 
     render(){
         return (
-
             <div id="flowchart-container">
-            <h1>The Git Flow Flowchart</h1>
-            <hr/>
-            <br/><br/>
-            <ReactCSSTransitionGroup transitionName="appear" transitionEnterTimeout={600} transitionLeaveTimeout={500} >
+                <h1>The Git Flow Flowchart</h1>
+                <hr/>
+                <br/><br/>
+                <ReactCSSTransitionGroup transitionName="appear" transitionEnterTimeout={600} transitionLeaveTimeout={500} >
 
-            {/* The stepsAsComponents state will be set each time the
-                component mounts or onNextStep is called from a child component.
+                    {/* The stepsAsComponents state will be set each time the
+                        component mounts or onNextStep is called from a child component.
 
-                If onNextStep is called, the next step is simple added in.
-                If the component mounts from scratch, it will look for any steps in
-                the URL, and add them to stepsAsComponents
-              */}
+                        If onNextStep is called, the next step is simple added in.
+                        If the component mounts from scratch, it will look for any steps in
+                        the URL, and add them to stepsAsComponents
+                      */}
 
-            {this.state.stepsAsComponents}
+                    {this.state.stepsAsComponents}
                 </ReactCSSTransitionGroup>
             </div>
         )
