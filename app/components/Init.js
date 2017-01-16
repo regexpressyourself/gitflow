@@ -22,7 +22,7 @@ function Init(props) {
                 Make sure to run the command in the top folder of your project. This will create a .git folder for you, which will store the different versions of your files in git's own way. Running <kbd>git init</kbd> is all that's needed to start using git.
             </TermsDescription>
             <NextStepContainer isActive={props.isActive}
-                               clickFunction={props.onNextStep("branch")}>
+                               clickFunction={() => props.onNextStep("branch")}>
                 Add a new branch to my project
             </NextStepContainer>
         </div>
