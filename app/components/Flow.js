@@ -30,19 +30,19 @@ class Flow extends React.Component {
             stepsAsComponents: [], // component array of steps reached so far
             components:        { // "associative array" of string-to-component conversions
                 "push":           <Push           onNextStep={this.onNextStep}/>,
-                                 "diff":           <Diff           onNextStep={this.onNextStep}/>,
-                                 "remerge":        <Remerge        onNextStep={this.onNextStep}/>,
-                                 "merge":          <Merge          onNextStep={this.onNextStep}/>,
-                                 "pull":           <Pull           onNextStep={this.onNextStep}/>,
-                                 "checkout":       <Checkout       onNextStep={this.onNextStep}/>,
-                                 "checkoutmaster": <CheckoutMaster onNextStep={this.onNextStep}/>,
-                                 "commit":         <Commit         onNextStep={this.onNextStep}/>,
-                                 "add":            <Add            onNextStep={this.onNextStep}/>,
-                                 "work":           <Work           onNextStep={this.onNextStep}/>,
-                                 "branch":         <Branch         onNextStep={this.onNextStep}/>,
-                                 "clone":          <Clone          onNextStep={this.onNextStep}/>,
-                                 "init":           <Init           onNextStep={this.onNextStep}/>,
-                                 "start":          <Start          onNextStep={this.onNextStep}/>
+                "diff":           <Diff           onNextStep={this.onNextStep}/>,
+                "remerge":        <Remerge        onNextStep={this.onNextStep}/>,
+                "merge":          <Merge          onNextStep={this.onNextStep}/>,
+                "pull":           <Pull           onNextStep={this.onNextStep}/>,
+                "checkout":       <Checkout       onNextStep={this.onNextStep}/>,
+                "checkoutmaster": <CheckoutMaster onNextStep={this.onNextStep}/>,
+                "commit":         <Commit         onNextStep={this.onNextStep}/>,
+                "add":            <Add            onNextStep={this.onNextStep}/>,
+                "work":           <Work           onNextStep={this.onNextStep}/>,
+                "branch":         <Branch         onNextStep={this.onNextStep}/>,
+                "clone":          <Clone          onNextStep={this.onNextStep}/>,
+                "init":           <Init           onNextStep={this.onNextStep}/>,
+                "start":          <Start          onNextStep={this.onNextStep}/>
             }
         }
     }
