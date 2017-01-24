@@ -19,16 +19,16 @@ import '../styles/main.css';
 
 class Flow extends React.Component {
     /** Flow component controls the flowchart, calling each step's
-     *   component when it it reached in the chart. It is the parent component
-     *  of the /flow path
+     *  component when it it reached in the chart. It is the parent component
+     *  of the /flow path, and controls the bulk of functionality in the app.
      **/
     constructor(props) {
         super(props);
         this.onNextStep = this.onNextStep.bind(this);
         this.state = {
-            steps:             [], // string array of steps reached so far
-            stepsAsComponents: [], // component array of steps reached so far
-            components:        { // "associative array" of string-to-component conversions
+            steps:                [], // string array of steps reached so far
+            stepsAsComponents:    [], // component array of steps reached so far
+            stepConversionObject: { // "associative array" of string-to-component conversions
                 "push":           <Push           onNextStep={this.onNextStep}/>,
                 "diff":           <Diff           onNextStep={this.onNextStep}/>,
                 "remerge":        <Remerge        onNextStep={this.onNextStep}/>,
@@ -60,11 +60,20 @@ class Flow extends React.Component {
     }
 
     onNextStep(nextStep) {
-        // Update the view when a next step is passed in
-        let listOfSteps = this.state.stepsAsString;
+        /* onNextStep gets passed down to each step's component by reference.
+         *
+         * Before it is passed down, "this" is bound to the flow component.
+         *
+         * It will be called by the children components, but will run from the
+         * flow component here.
+         *
+         * @param  The next step as a string, passed up from child component
+         * @return none, but flow component's state and view will be updated
+         */
+        let listOfSteps = this.state.stepsAsString; // get the current steps from url
 
         if (nextStep === "complete") {
-            // scroll back up to "git checkout" after pushing
+            // scroll back up to "git checkout" if the child returns "complete"
             this.scrollToCheckoutSection();
         }
         else {
@@ -75,6 +84,8 @@ class Flow extends React.Component {
     }
 
     scrollToCheckoutSection() {
+        /* Scroll back up to the checkout section*/
+
         $(document).ready(function () {
             $("html, body").animate({
                 scrollTop: $("#checkout-section").offset().top
@@ -83,7 +94,9 @@ class Flow extends React.Component {
     }
 
     addNextStep(nextStep, listOfSteps) {
-        // Checks for duplicate steps and adds step to the listOfSteps
+        /* Check for duplicates in the listOfSteps, and
+         * add the next step if it hasn't been reached yet
+         */
         if (nextStep &&
             listOfSteps.indexOf(nextStep) < 0) {
             listOfSteps.push(nextStep);
@@ -91,8 +104,8 @@ class Flow extends React.Component {
     }
 
     updateUrl(urlStepParameter) {
-        // add next step to url
-
+        /* Add the next step's string to the steps parameter in the URL
+         */
         hashHistory.push({
             pathname: '/flow/',
             search:   '?steps=' + urlStepParameter
@@ -100,29 +113,38 @@ class Flow extends React.Component {
     }
 
     updateView(listOfSteps) {
-        // add next steps component to Flow's state
-
-        let listOfComponents;
+        /* Convert list of steps as string to their corresponding components
+         * and add the list of components to this.state.stepsAsComponents.
+         */
+        let listOfComponents; // workable list of components
 
         listOfComponents = this.convertStringsToComponents(listOfSteps)
         listOfComponents = this.setLastStepActive(listOfComponents);
 
         this.setState({
-            // update this.state.view with the new components
+            // update this.state.stepsAsComponents with the new components
             stepsAsComponents: listOfComponents
         });
     }
 
     convertStringsToComponents(listOfSteps) {
-        // converts a string array into a corresponding component array
+        /* Convert the array of strings to an array of components
+         * using the object this.state.stepConversionObject.
+           this.state.stepConversionObject acts as an associative array,
+           with the key being the step as a string, and the value being
+           the corresponding component.
+         */
+
         return listOfSteps.map((step) => {
-            return React.cloneElement(this.state.components[step],
+            return React.cloneElement(this.state.stepConversionObject[step],
                                       {key: step});
         });
     }
 
     setLastStepActive(listOfComponents) {
-        // sets the last component's isActive prop to true
+        /* Set the last step as active. This will tell it to show
+         * the next step options.
+         */
         let lastIndex = listOfComponents.length - 1;
 
         if (listOfComponents[lastIndex] !== undefined){
@@ -133,21 +155,19 @@ class Flow extends React.Component {
     }
 
     render(){
+        /* The render method will display whatever is in this.state.sepsAsComponents/
+
+           The stepsAsComponents state will be set each time the
+           component mounts or onNextStep is called from a child component.
+         */
         return (
             <div id="flowchart-container">
                 <h1>The Git Flow Flowchart</h1>
                 <hr/>
                 <br/><br/>
-                <ReactCSSTransitionGroup transitionName="appear" transitionEnterTimeout={600} transitionLeaveTimeout={500} >
-
-                    {/* The stepsAsComponents state will be set each time the
-                        component mounts or onNextStep is called from a child component.
-
-                        If onNextStep is called, the next step is simple added in.
-                        If the component mounts from scratch, it will look for any steps in
-                        the URL, and add them to stepsAsComponents
-                      */}
-
+                <ReactCSSTransitionGroup transitionName="appear"
+                                         transitionEnterTimeout={600}
+                                         transitionLeaveTimeout={500} >
                     {this.state.stepsAsComponents}
                 </ReactCSSTransitionGroup>
             </div>
