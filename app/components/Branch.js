@@ -10,7 +10,7 @@ function Branch(props) {
         <div>
             <FlowHeader>
                 Git Branch
-                <Terms isCode="true" term="git branch <new_branch>" >
+                <Terms isCode="true" term="git branch new_branch" >
                     Creates a new branch
                 </Terms>
             </FlowHeader>
@@ -21,9 +21,9 @@ function Branch(props) {
                 <br/><br/>
                 You can create a branch by running:
                 <kbd className="is-command">
-                    git branch {"<"}new_branch{">"}
+                    git branch new_branch
                 </kbd>
-                <kbd>{"<"}new_branch{">"}</kbd> is the name of your branch (it can even be "new_branch" if you're not feeling very creative).
+                <kbd>new_branch</kbd> is the name of your branch (it can even be "new_branch" if you're not feeling very creative).
             </TermsDescription>
             <NextStepContainer isActive={props.isActive}
                                clickFunction={() => props.onNextStep("checkout")}>

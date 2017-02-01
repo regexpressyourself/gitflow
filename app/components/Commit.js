@@ -13,8 +13,8 @@ function Commit(props) {
                 <Terms isCode="true" term="git commit" >
                     Commits staged changes and prompts for message
                 </Terms>
-                <Terms isCode="true" term='git commit -m "<message>"' >
-                    Commits staged changes and add the message: <kbd>{"<"}message{">"}</kbd>
+                <Terms isCode="true" term='git commit -m "message"' >
+                    Commits staged changes and add the message: <kbd>message</kbd>
                 </Terms>
             </FlowHeader>
             <TermsDescription>

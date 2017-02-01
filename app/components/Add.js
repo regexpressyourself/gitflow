@@ -11,7 +11,7 @@ function Add(props) {
         <div>
             <FlowHeader>
                 Git Add
-                <Terms isCode="true" term="git add <filename>" >
+                <Terms isCode="true" term="git add filename" >
                     Adds the changes in a given file to git
                 </Terms>
             </FlowHeader>
@@ -26,7 +26,7 @@ function Add(props) {
 
                 We will discuss staging here.
                 <br/><br/>
-                To stage a given file, <kbd>{"<"}filename{">"}</kbd>, you will use the command <kbd className="is-command">git add {"<"}filename{">"}</kbd>
+                To stage a given file, <kbd>filename</kbd>, you will use the command <kbd className="is-command">git add filename</kbd>
                 You can also stage multiple files at once by stringing them together:
                 <kbd className="is-command">git add file1 file2 file3</kbd>
                 Alternatively, you can stage all the current changes by replacing the filename with a period:
