@@ -11,7 +11,7 @@ function Home (props){
             <p className="lead"><i>Learn git step by step</i></p>
             <br/>
             <p>
-                Git Flow is and interactive flow chart that walks you through the steps needed in order to use git properly.
+                Git Flow is an interactive flow chart that walks you through the steps needed in order to use git properly.
             </p>
             <p>
                 It is by no means an exhaustive illustration, but it should at least get you started on the right track.
