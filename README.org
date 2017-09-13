@@ -1,4 +1,6 @@
-* Git Flow
+
+<img alt="Git Flow" src="https://regexpressyourself.github.io/public/GitFlowLogo.png" width="400px"/>
+
 A website to help walk through the typical merge workflow with git. Git Flow presents each step needed to use git as an interactive flowchart. 
 
 Check it out at [[http://smessina.com/gitflow][smessina.com/gitflow.]]
