@@ -3,9 +3,9 @@
 
 A website to help walk through the typical merge workflow with git. Git Flow presents each step needed to use git as an interactive flowchart. 
 
-Check it out at [[http://smessina.com/gitflow][smessina.com/gitflow.]]
+Check it out at [smessina.com/gitflow.](https://smessina.com/gitflow)
 
-** Development
+## Development
 
 Git Flow is hosted on Github Pages, and uses React.js to control the flowchart.
 
