@@ -9,6 +9,7 @@ Learn to use git through a dynamic, interactive flowchart.
 ## Table of Contents
 
 1. [Getting Started](#getting-started)
+2. [Deployment](#deployment)
 2. [Built With](#built-with)
 3. [Contributing](#contributing)
 3. [Authors](#authors)
