@@ -1,4 +1,3 @@
-
 body{
     color: #191414 ;
     padding-bottom: 75px;
@@ -27,6 +26,11 @@ h4 {
     width: 100%;
     font-weight: 600;
 }
+
+img {
+    max-width: 100%;
+}
+
 kbd {
     white-space: nowrap;
 }

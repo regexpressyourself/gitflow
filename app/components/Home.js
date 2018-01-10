@@ -8,6 +8,7 @@ function Home (props){
     return (
         <div>
             <h1>Git Flow</h1>
+            <img src="https://smessina.com/images/GitFlowLogo.png" alt="Git Flow logo"/>
             <p className="lead"><i>Learn git step by step</i></p>
             <br/>
             <p>
