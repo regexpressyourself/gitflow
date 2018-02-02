@@ -15,7 +15,7 @@ function Init(props) {
                 </Terms>
             </FlowHeader>
             <TermsDescription>
-                You can bootstrap a new repository by using the command:
+                You can set up a new repository by using the command:
                 <kbd className="is-command">
                     git init
                 </kbd>
