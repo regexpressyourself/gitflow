@@ -1,4 +1,4 @@
-<img alt="Git Flow" align="right" src="https://smessina.com/static/images/gitflow.png" width="400px"/>
+<img alt="Git Flow" align="right" src="https://smessina.com/static/images/sss/gf-2.png" width="400px"/>
 
 # Git Flow
 
