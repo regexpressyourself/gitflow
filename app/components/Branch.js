@@ -27,7 +27,7 @@ function Branch(props) {
             </TermsDescription>
             <NextStepContainer isActive={props.isActive}
                                clickFunction={() => props.onNextStep("checkout")}>
-                Checkout and start using your my branch
+                Checkout and start using my branch
             </NextStepContainer>
         </div>
     )
