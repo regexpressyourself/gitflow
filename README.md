@@ -1,10 +1,10 @@
-<img alt="Git Flow" align="right" src="https://regexpressyourself.github.io/public/GitFlowLogo.png" width="400px"/>
+<img alt="Git Flow" align="right" src="https://smessina.com/static/images/sss/gf-2.png" width="400px"/>
 
 # Git Flow
 
 Learn to use git through a dynamic, interactive flowchart.
 
-[See it live here!](https://smessina.com/gitflow/#/)
+[See it live here!](https://gitflow.smessina.com/)
 
 ## Table of Contents
 
